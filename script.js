@@ -27,83 +27,166 @@ const men = [
   {id:'m12',name:'Fine Stripe Formal Shirt',type:'Button-down shirt',category:'smart',price:1599,color:'White / blue',swatch:'#d5e0e5',tag:'WORK TO DINNER',image:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85'}
 ];
 
-// Guardrails: unique product IDs, names and image URLs across both collections.
-const allProducts = [...women, ...men];
+
+const accessories = [
+  {id:'a01',name:'Sculpted Evening Bag',type:'Structured shoulder bag',category:'accessory',price:1899,color:'Black',swatch:'#262322',tag:'THE FINISHING TOUCH',image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85'},
+  {id:'a02',name:'Everyday Frame Sunglasses',type:'Classic acetate frames',category:'accessory',price:999,color:'Tortoise',swatch:'#71513b',tag:'SUN EDIT',image:'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=85'},
+  {id:'a03',name:'Minimal Dial Watch',type:'Everyday wristwatch',category:'accessory',price:2299,color:'Gold / black',swatch:'#9d8050',tag:'TIMELESS',image:'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85'},
+  {id:'a04',name:'Soft Leather Belt',type:'Minimal waist belt',category:'accessory',price:799,color:'Espresso',swatch:'#4b3026',tag:'DAILY DETAIL',image:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85'},
+  {id:'a05',name:'Everyday Carry Tote',type:'Roomy canvas tote',category:'accessory',price:699,color:'Natural',swatch:'#c8b9a2',tag:'CARRY YOUR DAY',image:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=85'},
+  {id:'a06',name:'Soft Touch Scarf',type:'Lightweight styling scarf',category:'accessory',price:599,color:'Dusty rose',swatch:'#b98688',tag:'SOFT LAYERS',image:'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=85'}
+];
+
+const allProducts = [...women, ...men, ...accessories];
 const uniqueBy = key => new Set(allProducts.map(p => p[key])).size === allProducts.length;
-if (!uniqueBy('id') || !uniqueBy('name') || !uniqueBy('image')) console.error('NOIR product uniqueness check failed.');
+if (!uniqueBy('id') || !uniqueBy('name') || !uniqueBy('image')) console.error('NOIR uniqueness check failed: product IDs, names and image URLs must be unique.');
 
 const formatPrice = amount => '₹' + amount.toLocaleString('en-IN');
 function productCard(product, index) {
   return `<article class="product-card" style="animation-delay:${Math.min(index * 35, 280)}ms">
-    <div class="product-image"><img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async"><span class="product-tag">${product.tag}</span></div>
+    <div class="product-image"><img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async"><span class="product-tag">${product.tag}</span><button class="quick-add" type="button" data-add="${product.id}" aria-label="Add ${product.name} to bag">+</button></div>
     <div class="product-info"><div class="product-name-line"><h3 class="product-name">${product.name}</h3><span class="product-price">${formatPrice(product.price)}</span></div>
     <p class="product-type">${product.type}</p><div class="product-bottom"><span class="swatch" style="--swatch:${product.swatch}" aria-label="${product.color}"></span><span class="product-color">${product.color}</span><button class="add-button" type="button" data-add="${product.id}">ADD TO BAG +</button></div></div></article>`;
 }
 function renderProducts(collection, targetId, filter = 'all') {
   const target = document.getElementById(targetId);
+  if (!target) return;
   const visible = filter === 'all' ? collection : collection.filter(item => item.category === filter);
   target.innerHTML = visible.map(productCard).join('');
 }
 renderProducts(women, 'womenProducts');
 renderProducts(men, 'menProducts');
+renderProducts(accessories, 'accessoryProducts');
 
 document.querySelectorAll('[data-filter-group]').forEach(group => {
   group.addEventListener('click', event => {
     const button = event.target.closest('[data-filter]');
     if (!button) return;
     group.querySelectorAll('[data-filter]').forEach(item => item.classList.toggle('active', item === button));
-    const isWomen = group.dataset.filterGroup === 'women';
-    renderProducts(isWomen ? women : men, isWomen ? 'womenProducts' : 'menProducts', button.dataset.filter);
+    const collection = group.dataset.filterGroup === 'women' ? women : men;
+    renderProducts(collection, group.dataset.filterGroup === 'women' ? 'womenProducts' : 'menProducts', button.dataset.filter);
   });
 });
 
 const welcome = document.getElementById('welcome');
 const enterButton = document.getElementById('enterNoir');
 function enterSite() {
+  if (!welcome || welcome.classList.contains('is-leaving')) return;
   welcome.classList.add('is-leaving');
   document.body.classList.remove('no-scroll');
-  window.setTimeout(() => welcome.remove(), 750);
+  window.setTimeout(() => welcome.remove(), 700);
 }
 document.body.classList.add('no-scroll');
-enterButton.addEventListener('click', enterSite);
-welcome.addEventListener('click', event => { if (event.target === welcome) enterSite(); });
+enterButton?.addEventListener('click', enterSite);
+welcome?.addEventListener('click', event => { if (event.target === welcome) enterSite(); });
 
 const menuButton = document.getElementById('menuButton');
 const nav = document.getElementById('navigation');
-menuButton.addEventListener('click', () => {
+menuButton?.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(open));
 });
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
+nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('open'); menuButton?.setAttribute('aria-expanded', 'false');
 }));
 
 const toast = document.getElementById('toast');
 let toastTimeout;
 function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add('show');
+  if (!toast) return;
+  toast.textContent = message; toast.classList.add('show');
   clearTimeout(toastTimeout);
-  toastTimeout = window.setTimeout(() => toast.classList.remove('show'), 2200);
+  toastTimeout = window.setTimeout(() => toast.classList.remove('show'), 2400);
 }
 const bag = new Map();
+const bagDrawer = document.getElementById('bagDrawer');
+const overlay = document.getElementById('overlay');
+const bagItems = document.getElementById('bagItems');
+const bagCount = document.getElementById('bagCount');
+const bagSubtotal = document.getElementById('bagSubtotal');
+function bagTotal() { return [...bag.entries()].reduce((sum, [id, qty]) => sum + allProducts.find(p => p.id === id).price * qty, 0); }
+function updateBag() {
+  const quantity = [...bag.values()].reduce((sum, qty) => sum + qty, 0);
+  bagCount.textContent = quantity;
+  bagSubtotal.textContent = formatPrice(bagTotal());
+  if (!bag.size) { bagItems.innerHTML = '<p class="empty-bag">Your bag is waiting for something you love.</p>'; return; }
+  bagItems.innerHTML = [...bag.entries()].map(([id, qty]) => {
+    const product = allProducts.find(p => p.id === id);
+    return `<article class="bag-item"><img src="${product.image}" alt=""><div class="bag-item-copy"><h3>${product.name}</h3><p>${product.color} · ${formatPrice(product.price)}</p><div class="quantity-controls"><button type="button" data-qty="${id}" data-step="-1" aria-label="Remove one">−</button><span>${qty}</span><button type="button" data-qty="${id}" data-step="1" aria-label="Add one">+</button><button class="remove-item" type="button" data-remove="${id}">REMOVE</button></div></div><strong>${formatPrice(product.price * qty)}</strong></article>`;
+  }).join('');
+}
+function openBag() { bagDrawer.classList.add('open'); bagDrawer.setAttribute('aria-hidden','false'); overlay.classList.add('open'); document.body.classList.add('no-scroll'); }
+function closePanels() { bagDrawer.classList.remove('open'); bagDrawer.setAttribute('aria-hidden','true'); overlay.classList.remove('open'); document.querySelectorAll('.modal.open').forEach(modal => modal.classList.remove('open')); document.body.classList.remove('no-scroll'); }
+function openModal(modal) { closePanels(); modal.classList.add('open'); overlay.classList.add('open'); document.body.classList.add('no-scroll'); }
+document.getElementById('bagOpen')?.addEventListener('click', openBag);
+document.getElementById('footerBag')?.addEventListener('click', openBag);
+document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click', closePanels));
+overlay?.addEventListener('click', closePanels);
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closePanels(); });
+
 document.addEventListener('click', event => {
   const addButton = event.target.closest('[data-add]');
-  if (!addButton) return;
-  const product = allProducts.find(item => item.id === addButton.dataset.add);
-  if (!product) return;
-  bag.set(product.id, (bag.get(product.id) || 0) + 1);
-  showToast(`${product.name} added to your demo bag · ${bag.size} unique item${bag.size === 1 ? '' : 's'}`);
+  if (addButton) {
+    const product = allProducts.find(item => item.id === addButton.dataset.add);
+    if (!product) return;
+    bag.set(product.id, (bag.get(product.id) || 0) + 1);
+    updateBag(); showToast(`${product.name} added to your bag`); return;
+  }
+  const qtyButton = event.target.closest('[data-qty]');
+  if (qtyButton) {
+    const id = qtyButton.dataset.qty; const next = (bag.get(id) || 0) + Number(qtyButton.dataset.step);
+    if (next <= 0) bag.delete(id); else bag.set(id, next);
+    updateBag(); return;
+  }
+  const removeButton = event.target.closest('[data-remove]');
+  if (removeButton) { bag.delete(removeButton.dataset.remove); updateBag(); }
+});
+
+const accountModal = document.getElementById('accountModal');
+const checkoutModal = document.getElementById('checkoutModal');
+function openAccount() { openModal(accountModal); }
+document.getElementById('accountOpen')?.addEventListener('click', openAccount);
+document.getElementById('footerAccount')?.addEventListener('click', openAccount);
+let authMode = 'signup';
+document.querySelectorAll('[data-auth-mode]').forEach(button => button.addEventListener('click', () => {
+  authMode = button.dataset.authMode;
+  document.querySelectorAll('[data-auth-mode]').forEach(tab => tab.classList.toggle('active', tab === button));
+  document.getElementById('accountTitle').innerHTML = authMode === 'signup' ? 'Create your <em>account.</em>' : 'Welcome <em>back.</em>';
+  document.getElementById('accountNameLabel').hidden = authMode === 'login';
+  document.getElementById('accountName').hidden = authMode === 'login';
+  document.getElementById('accountName').required = authMode === 'signup';
+  document.getElementById('accountPassword').autocomplete = authMode === 'signup' ? 'new-password' : 'current-password';
+  document.getElementById('accountSubmit').innerHTML = authMode === 'signup' ? 'CREATE DEMO ACCOUNT <span>↗</span>' : 'LOG IN TO DEMO <span>↗</span>';
+  document.getElementById('accountMessage').textContent = '';
+}));
+document.getElementById('accountForm')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const name = document.getElementById('accountName').value.trim();
+  const email = document.getElementById('accountEmail').value.trim();
+  document.getElementById('accountMessage').textContent = authMode === 'signup' ? `Demo account preview created for ${name}. No account data was sent or saved.` : `Demo login checked for ${email}. No real authentication is connected.`;
+  document.getElementById('accountMessage').classList.add('success');
+});
+
+document.getElementById('checkoutOpen')?.addEventListener('click', () => {
+  if (!bag.size) { showToast('Add a product to your bag first.'); return; }
+  document.getElementById('checkoutTotal').textContent = formatPrice(bagTotal());
+  document.getElementById('checkoutMessage').textContent = '';
+  openModal(checkoutModal);
+});
+document.getElementById('checkoutForm')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const orderCode = 'NOIR-DEMO-' + Math.random().toString(36).slice(2,7).toUpperCase();
+  const method = new FormData(event.currentTarget).get('paymentMethod');
+  document.getElementById('checkoutMessage').textContent = `Demo order ${orderCode} created for ${formatPrice(bagTotal())} using ${method}. No payment was taken and no real order was placed.`;
+  document.getElementById('checkoutMessage').classList.add('success');
+  bag.clear(); updateBag();
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// If a remote product image fails, hide only that image rather than reusing another product photo.
+// Failed product images never get replaced with another product's image.
 document.addEventListener('error', event => {
   const image = event.target;
   if (image.tagName !== 'IMG' || image.dataset.errorHandled) return;
-  image.dataset.errorHandled = 'true';
-  image.style.visibility = 'hidden';
-  image.parentElement.style.background = 'linear-gradient(135deg, #e8ded5, #d6c7bb)';
+  image.dataset.errorHandled = 'true'; image.style.visibility = 'hidden';
+  if (image.parentElement) image.parentElement.classList.add('image-unavailable');
 }, true);
