@@ -1,67 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f8f5f4" />
-  <meta name="description" content="NOIR — modern luxury, considered design. Discover elevated fashion for every expression." />
-  <title>NOIR — A Study in Modern Luxury</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171615">
+  <meta name="description" content="NOIR — considered fashion, made for your own kind of presence.">
+  <title>NOIR — Wear Your Own Story</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="intro" id="intro" aria-hidden="true"><span class="intro-mark">N</span><span class="intro-name">N O I R</span><div class="intro-line"><i></i></div></div>
-  <div class="announcement">COMPLIMENTARY SHIPPING ON ORDERS OVER ₹4,999 <span>✳</span> A NEW PERSPECTIVE ON EVERYDAY LUXURY</div>
-  <header class="site-header" id="top">
-    <button class="icon-button menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-    <a class="wordmark" href="#top" aria-label="NOIR home">NOIR<span>®</span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#collections">Collections</a><a href="#women">Women</a><a href="#men">Men</a><a href="#story">Our world</a><a href="#founder">Founder</a></nav>
-    <div class="header-actions"><button class="icon-button search-open" id="searchOpen" aria-label="Search products"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button><button class="icon-button account-open" id="accountOpen" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M4.8 20c.8-4 3.2-6 7.2-6s6.4 2 7.2 6"></path></svg></button><button class="icon-button wishlist-open" id="wishlistOpen" aria-label="Wishlist">♡<span class="count" id="wishlistCount">0</span></button><button class="icon-button bag-open" id="bagOpen" aria-label="Shopping bag">BAG <span class="count" id="bagCount">0</span></button></div>
+  <div class="welcome" id="welcome" aria-label="Welcome to NOIR">
+    <div class="welcome-inner">
+      <p class="welcome-kicker">A NEW WAY TO BE YOU</p>
+      <div class="welcome-word">NOIR<span>.</span></div>
+      <p class="welcome-line">WELCOME TO NOIR WORLD</p>
+      <p class="welcome-by">BY PARAS CHAUDHARY</p>
+      <button class="enter-button" id="enterNoir">ENTER THE WORLD <span>↗</span></button>
+    </div>
+    <div class="welcome-grain" aria-hidden="true"></div>
+  </div>
+
+  <div class="announcement">PERSONAL STYLE. NO RULES. <span>✳</span> WELCOME TO NOIR.</div>
+  <header class="site-header">
+    <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <a class="logo" href="#home" aria-label="NOIR home">NOIR<span>®</span></a>
+    <nav class="desktop-nav" id="navigation">
+      <a href="#women">WOMEN</a><a href="#men">MEN</a><a href="#founder">THE FOUNDER</a><a href="#about-noir">OUR WORLD</a>
+    </nav>
+    <a class="header-cta" href="#women">EXPLORE <span>↗</span></a>
   </header>
-  <div class="mobile-nav" id="mobileNav"><a href="#collections">Collections</a><a href="#women">Women</a><a href="#men">Men</a><a href="#story">Our world</a><a href="#founder">Founder</a><button id="mobileAccount">Create account / Sign in</button></div>
 
   <main>
-    <section class="hero" aria-label="NOIR seasonal campaign">
-      <div class="hero-image hero-image-main" role="img" aria-label="Editorial fashion campaign with sculptural styling"></div>
-      <div class="hero-wash"></div><div class="hero-copy"><p class="eyebrow reveal">THE NEW SEASON · 2026</p><h1 class="reveal">Quietly<br><em>extraordinary.</em></h1><p class="hero-description reveal">A softer statement. A stronger point of view.<br>Discover pieces made to stay with you.</p><a class="pill-link reveal" href="#collections">Explore the collection <span>↗</span></a></div>
-      <div class="hero-side-note">OBJECTS OF DESIRE <span>—</span> 001 / 100</div><div class="hero-pagination"><span class="active"></span><span></span><span></span></div>
-      <div class="hero-bottom"><span>DESIGNED FOR EVERY EXPRESSION</span><span>SCROLL TO DISCOVER ↓</span></div>
+    <section class="hero" id="home">
+      <div class="hero-image" role="img" aria-label="Editorial fashion model in a city setting"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow light">STYLE THAT SPEAKS QUIETLY</p>
+        <h1>Not made to fit in.<br><em>Made to be you.</em></h1>
+        <p class="hero-description">Modern essentials. Thoughtful details.<br>Find the pieces that feel like your story.</p>
+        <a class="light-button" href="#women">DISCOVER THE COLLECTION <span>↘</span></a>
+      </div>
+      <div class="hero-index"><span>01</span><i></i><span>NOIR EDITION</span></div>
+      <div class="hero-bottom"><span>LESS NOISE. MORE YOU.</span><span>EST. WITH AN IDEA</span></div>
     </section>
 
-    <section class="marquee" aria-label="Brand statement"><div class="marquee-track"><span>LESS, BUT BETTER</span><i>✳</i><span>MADE TO BE FELT</span><i>✳</i><span>AN EVERYDAY RITUAL</span><i>✳</i><span>LESS, BUT BETTER</span><i>✳</i><span>MADE TO BE FELT</span><i>✳</i><span>AN EVERYDAY RITUAL</span><i>✳</i></div></section>
-
-    <section class="section collection-section" id="collections"><div class="section-heading reveal"><div><p class="eyebrow">A CURATED POINT OF VIEW</p><h2>Find your <em>form.</em></h2></div><a class="text-link" href="#all-products">View all pieces <span>↗</span></a></div>
-      <div class="category-grid"><a class="category-card women-card reveal" href="#women"><div class="category-photo"></div><div class="category-overlay"><span>01 / WOMENSWEAR</span><h3>Her kind<br>of <em>statement.</em></h3><span class="circle-arrow">↗</span></div></a><a class="category-card men-card reveal" href="#men"><div class="category-photo"></div><div class="category-overlay"><span>02 / MENSWEAR</span><h3>His own<br><em>language.</em></h3><span class="circle-arrow">↗</span></div></a><a class="category-card objects-card reveal" href="#all-products"><div class="category-photo"></div><div class="category-overlay"><span>03 / OBJECTS</span><h3>The art of<br><em>the detail.</em></h3><span class="circle-arrow">↗</span></div></a></div>
+    <section class="intro-strip">
+      <span>01 / THE COLLECTION</span><p>Good style isn't about being seen by everyone. <em>It's about feeling like yourself.</em></p><span>NOIR®</span>
     </section>
 
-    <section class="section products-section" id="women"><div class="section-heading reveal"><div><p class="eyebrow">01 — HER EDIT</p><h2>Modern <em>femininity.</em></h2><p class="section-sub">Fluid shapes, thoughtful layers, a little unexpected.</p></div><a class="text-link" href="#all-products" data-filter-link="women">Shop women <span>↗</span></a></div><div class="product-grid" id="womenProducts"></div></section>
-    <section class="section products-section men-section" id="men"><div class="section-heading reveal"><div><p class="eyebrow">02 — HIS EDIT</p><h2>Considered <em>masculinity.</em></h2><p class="section-sub">Clean lines, tactile essentials, effortless confidence.</p></div><a class="text-link" href="#all-products" data-filter-link="men">Shop men <span>↗</span></a></div><div class="product-grid" id="menProducts"></div></section>
-
-    <section class="campaign reveal" id="story"><div class="campaign-image"></div><div class="campaign-copy"><p class="eyebrow">THE NOIR PHILOSOPHY</p><h2>Luxury isn't<br>loud. It's <em>personal.</em></h2><p>Thoughtful silhouettes. Meaningful details. Pieces that feel like you, only more so. We believe getting dressed can be a quiet kind of confidence.</p><a href="#all-products" class="underlined-link">Discover our point of view <span>↗</span></a><span class="campaign-number">N° 001 — THE ART OF LESS</span></div></section>
-
-    <section class="founder-section reveal" id="founder">
-      <div class="founder-portrait" role="img" aria-label="Portrait of NOIR founder Paras Chaudhary"><span>PARAS CHAUDHARY<br>FOUNDER OF NOIR</span></div>
-      <div class="founder-copy"><p class="eyebrow">A NOTE FROM THE FOUNDER · 001</p><p class="founder-kicker">The house of NOIR</p><h2>Meet the vision.<br><em>Meet the founder.</em></h2><p class="founder-name">Paras Chaudhary <span>— mostly known as Paras</span></p><p class="founder-story">NOIR begins with a simple ambition: to build a luxury clothing brand that feels personal, expressive, and thoughtfully made. Paras’s vision is to build NOIR into a distinctive luxury clothing brand with its own identity — where confident silhouettes, elevated everyday essentials, and thoughtful details come together. The goal is to make fashion feel personal and expressive: pieces that speak quietly, feel considered, and help people show up as themselves.</p><p class="founder-story">Beyond the brand, Paras is a chill, nonchalant, and open-minded guy who values fresh perspectives and the freedom to explore new ideas. He believes good style is personal, creativity has no single formula, and growth comes from staying curious. NOIR is his starting point — a long-term vision he wants to shape one thoughtful step at a time.</p><div class="founder-signature">With intention, <em>Paras.</em></div><a class="underlined-link" href="#collections">Explore the NOIR world <span>↗</span></a></div>
+    <section class="collection section" id="women">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE WOMEN'S EDIT</p><h2>For every side <em>of you.</em></h2><p class="section-sub">12 considered pieces. No duplicate products.</p></div>
+        <span class="section-count">WOMEN / 12</span>
+      </div>
+      <div class="filter-row" data-filter-group="women">
+        <button class="filter-chip active" data-filter="all">ALL PIECES</button><button class="filter-chip" data-filter="western">WESTERN</button><button class="filter-chip" data-filter="traditional">TRADITIONAL</button><button class="filter-chip" data-filter="casual">CASUAL</button>
+      </div>
+      <div class="product-grid" id="womenProducts" aria-live="polite"></div>
     </section>
 
-    <section class="section all-products" id="all-products"><div class="section-heading reveal"><div><p class="eyebrow">THE FULL EDIT</p><h2>Objects for <em>every day.</em></h2></div><div class="filter-pills" role="group" aria-label="Filter products"><button class="filter-pill active" data-filter="all">All</button><button class="filter-pill" data-filter="women">Women</button><button class="filter-pill" data-filter="men">Men</button><button class="filter-pill" data-filter="accessories">Objects</button></div></div><div class="product-grid" id="allProducts"></div></section>
+    <section class="collection men-collection section" id="men">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE MEN'S EDIT</p><h2>Effortless. <em>Every day.</em></h2><p class="section-sub">12 distinct styles, each with its own product image.</p></div>
+        <span class="section-count">MEN / 12</span>
+      </div>
+      <div class="filter-row" data-filter-group="men">
+        <button class="filter-chip active" data-filter="all">ALL PIECES</button><button class="filter-chip" data-filter="smart">SMART</button><button class="filter-chip" data-filter="casual">CASUAL</button><button class="filter-chip" data-filter="streetwear">STREETWEAR</button>
+      </div>
+      <div class="product-grid" id="menProducts" aria-live="polite"></div>
+    </section>
 
-    <section class="newsletter"><div class="newsletter-orb"></div><p class="eyebrow">A NOTE FROM NOIR</p><h2>A little more <em>beautiful.</em></h2><p>New arrivals, considered stories, and notes worth opening.</p><form id="newsletterForm" class="newsletter-form" novalidate><label class="sr-only" for="newsletterEmail">Email address</label><input id="newsletterEmail" type="email" placeholder="Your email address" autocomplete="email" required><button type="submit">Join the list <span>↗</span></button></form><small id="newsletterMessage" aria-live="polite">A quiet inbox, always. Demo form — no email will be sent.</small></section>
+    <section class="founder section" id="founder">
+      <div class="founder-photo-wrap"><div class="founder-photo" role="img" aria-label="Portrait of NOIR founder Paras"></div><span class="photo-caption">THE PERSON BEHIND THE IDEA</span></div>
+      <div class="founder-copy"><p class="eyebrow">A NOTE FROM THE FOUNDER</p><h2>Hey, I'm <em>Paras.</em></h2>
+        <p class="founder-lead">NOIR began with a simple thought: style should feel personal, not prescribed.</p>
+        <p>I’m Paras Chaudhary, the person behind NOIR. I wanted to build a space for pieces that feel confident without trying too hard—clothes you can make your own, in your own way.</p>
+        <p>This is a growing creative project, built around curiosity, self-expression and the belief that your style should tell your story.</p>
+        <div class="founder-signoff">With intention, <span>Paras</span></div>
+      </div>
+    </section>
+
+    <section class="about-noir section" id="about-noir">
+      <div class="about-top"><p class="eyebrow">SO, WHAT IS NOIR?</p><span>02 / OUR POINT OF VIEW</span></div>
+      <div class="about-content"><h2>A wardrobe is more than clothes. <em>It's a point of view.</em></h2><div class="about-text"><p>NOIR is an independent fashion concept built on modern silhouettes, versatile pieces and individual expression. We bring western, traditional and everyday styles into one place—so your wardrobe can move with every version of you.</p><p>No pressure to follow every trend. No one way to dress. Just a little more intention, a little more confidence, and room to make it yours.</p><a class="dark-link" href="#women">FIND YOUR NOIR <span>↗</span></a></div></div>
+      <div class="values-row"><div><span>01</span><strong>PERSONALITY</strong><p>Wear what feels like you.</p></div><div><span>02</span><strong>VERSATILITY</strong><p>Pieces for more than one moment.</p></div><div><span>03</span><strong>INTENTION</strong><p>Choose with care. Style with freedom.</p></div></div>
+    </section>
+
+    <section class="campaign section" aria-label="NOIR campaign">
+      <div class="campaign-heading"><p class="eyebrow light">THE NOIR MOOD</p><h2>Different energies.<br><em>One point of view.</em></h2><p>For her. For him. For whoever you choose to be.</p></div>
+      <div class="campaign-models">
+        <figure class="model-card"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Female fashion model in an editorial portrait" loading="lazy"><figcaption><span>THE FEMININE EDIT</span><span>01 / NOIR</span></figcaption></figure>
+        <figure class="model-card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85" alt="Male fashion model in an editorial portrait" loading="lazy"><figcaption><span>THE MASCULINE EDIT</span><span>02 / NOIR</span></figcaption></figure>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="footer-top"><a class="footer-wordmark" href="#top">NOIR<span>®</span></a><p>Wear what feels like you.</p><a class="back-top" href="#top">BACK TO TOP ↑</a></div><div class="footer-links"><div><span>EXPLORE</span><a href="#women">Women</a><a href="#men">Men</a><a href="#all-products">Accessories</a></div><div><span>THE HOUSE</span><a href="#story">Our philosophy</a><a href="#founder">The founder</a><a href="#collections">Collections</a><a href="#top">Contact (coming soon)</a></div><div><span>YOUR NOIR</span><button id="footerAccount">Account / Sign in</button><button id="footerWishlist">Wishlist</button></div><div class="footer-note"><span>MADE FOR YOUR EVERYDAY</span><p>Modern essentials.<br>Lasting impressions.</p></div></div><div class="footer-bottom"><span>© 2026 NOIR STUDIO — CONCEPT BRAND</span><span>MADE WITH INTENTION <i>✳</i></span><span>INDIA · EN / ₹</span></div></footer>
 
-  <div class="scrim" id="scrim"></div>
-  <aside class="drawer" id="wishlistDrawer" aria-hidden="true" aria-label="Wishlist"><div class="drawer-head"><div><p class="eyebrow">SAVED FOR LATER</p><h2>Your <em>wishlist.</em></h2></div><button class="close-drawer" aria-label="Close wishlist">×</button></div><div id="wishlistItems" class="drawer-items"></div><p class="drawer-note">Your saved pieces stay on this device in this demo.</p></aside>
-  <aside class="drawer" id="bagDrawer" aria-hidden="true" aria-label="Shopping bag"><div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>The <em>bag.</em></h2></div><button class="close-drawer" aria-label="Close bag">×</button></div><div id="bagItems" class="drawer-items"></div><div class="bag-total"><span>Subtotal</span><strong id="bagSubtotal">₹0</strong></div><button class="primary-button" id="checkoutButton">Continue to checkout <span>↗</span></button><p class="drawer-note">Demo storefront — checkout is not connected.</p></aside>
-
-  <section class="modal-wrap" id="accountModal" aria-hidden="true"><div class="modal-card account-card" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><button class="modal-close" id="accountClose" aria-label="Close account">×</button><p class="eyebrow">WELCOME TO YOUR WORLD</p><h2 id="accountTitle">Your NOIR <em>account.</em></h2><div class="auth-tabs"><button class="auth-tab active" data-auth-mode="signup">Create account</button><button class="auth-tab" data-auth-mode="login">Sign in</button></div><div class="auth-status" id="authStatus" aria-live="polite">Create an account to save your favourites across visits.</div><form id="authForm" novalidate><label for="fullName" id="nameLabel">Full name</label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Your full name" minlength="2" required><label for="authEmail">Email address</label><input id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label for="authPassword">Password</label><div class="password-wrap"><input id="authPassword" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required><button type="button" id="togglePassword" aria-label="Show password">Show</button></div><div class="password-hint" id="passwordHint">Use 8+ characters with a letter and a number.</div><button class="primary-button auth-submit" type="submit" id="authSubmit">Create account <span>↗</span></button></form><p class="auth-footnote">Real sign-up/sign-in requires your own Supabase project. Until configured, this form validates inputs but will not pretend to create a secure account.</p></div></section>
-  <section class="modal-wrap" id="searchModal" aria-hidden="true"><div class="modal-card search-card" role="dialog" aria-modal="true" aria-labelledby="searchTitle"><button class="modal-close" id="searchClose" aria-label="Close search">×</button><p class="eyebrow">FIND YOUR NEXT FAVOURITE</p><h2 id="searchTitle">Search <em>NOIR.</em></h2><input id="searchInput" type="search" placeholder="Try ‘shirt’, ‘dress’, ‘jacket’…" autocomplete="off"><div id="searchResults" class="search-results"></div></div></section>
-  <section class="modal-wrap" id="checkoutModal" aria-hidden="true"><div class="modal-card checkout-card" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><button class="modal-close" id="checkoutClose" aria-label="Close checkout">×</button><p class="eyebrow">A THOUGHTFUL CHECKOUT · DEMO ONLY</p><h2 id="checkoutTitle">Make it <em>yours.</em></h2><div class="checkout-notice">This is a practice checkout. No real payment will be taken, no card details are needed, and no order will be shipped.</div><div id="checkoutSummary" class="checkout-summary"></div><form id="checkoutForm" novalidate><div class="checkout-fields"><div><label for="checkoutName">Full name</label><input id="checkoutName" name="name" autocomplete="name" minlength="2" required placeholder="Your full name"></div><div><label for="checkoutEmail">Email address</label><input id="checkoutEmail" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div><div><label for="checkoutAddress">Delivery address</label><input id="checkoutAddress" name="address" autocomplete="street-address" minlength="8" required placeholder="House, street, area"></div><div><label for="checkoutCity">City</label><input id="checkoutCity" name="city" autocomplete="address-level2" minlength="2" required placeholder="Your city"></div><div><label for="checkoutPincode">PIN code</label><input id="checkoutPincode" name="pincode" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{6}" maxlength="6" required placeholder="6-digit PIN"></div></div><fieldset class="payment-options"><legend>Choose a demo payment method</legend><label><input type="radio" name="payment" value="UPI demo" checked> UPI demo <span>No app opens</span></label><label><input type="radio" name="payment" value="Card demo"> Card demo <span>No card details requested</span></label><label><input type="radio" name="payment" value="Cash on delivery demo"> Cash on delivery <span>Practice only</span></label></fieldset><button class="primary-button" type="submit">Place demo order <span>↗</span></button></form><div id="checkoutResult" class="checkout-result" aria-live="polite"></div></div></section>
+  <footer class="footer">
+    <div class="footer-top"><a class="footer-logo" href="#home">NOIR<span>®</span></a><p>Wear your own story.</p><a class="back-top" href="#home">BACK TO TOP ↑</a></div>
+    <div class="footer-bottom"><span>© <span id="year"></span> NOIR BY PARAS CHAUDHARY</span><span>MADE WITH AN IDEA, BUILT WITH CURIOSITY.</span><a href="#about-noir">OUR WORLD ↗</a></div>
+  </footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 </body>
 </html>
