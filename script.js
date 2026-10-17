@@ -1,54 +1,109 @@
-/* NOIR 4.1 — product and interaction refresh. Founder image path remains in style.css. */
-const $ = (s, root=document) => root.querySelector(s);
-const $$ = (s, root=document) => [...root.querySelectorAll(s)];
-const money = n => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n);
-const photoIds = [
-'1539008835657-9e8e9680c956','1566174053879-31528523f8ae','1551163943-3f6a855d1153','1576566588028-4147f3842f27','1483985988355-763728e1935b','1509631179647-0177331693ae','1583496661160-fb5886a0aaaa','1591047139829-d91aecb6caea','1548624149-f7a5b6f6c2d6','1539533018447-63fcce2678e3','1544441893-675973e31985','1551488831-00ddcb6c6bd3',
-'1603252109303-2751441dd157','1618354691373-d851c5c3a990','1551028719-00167b16eac5','1617137968427-85924c800a22','1517438476312-10d79c077509','1542272604-787c3835535d','1521572163474-6864f9cf17ab','1620799140408-edc6dcb6d633','1618354691229-8b8f7fce4a0f','1523381210434-271e8be1f52b','1512436991641-6745cdb1723f','1539109136881-3be0616acf4b'
+const women = [
+  {id:'w01',name:'Sculpted Satin Dress',type:'Evening dress',category:'western',price:2499,color:'Champagne',swatch:'#d9c6a8',tag:'EVENING',image:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=85'},
+  {id:'w02',name:'Everyday Linen Shirt',type:'Relaxed shirt',category:'casual',price:1299,color:'Ivory',swatch:'#e8e0d4',tag:'EASY WEAR',image:'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=85'},
+  {id:'w03',name:'Rosewood Co-ord Set',type:'Two-piece set',category:'western',price:2199,color:'Rosewood',swatch:'#a86f75',tag:'CO-ORD',image:'https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&w=800&q=85'},
+  {id:'w04',name:'Classic Straight Denim',type:'High-rise denim',category:'casual',price:1599,color:'Indigo',swatch:'#394b72',tag:'EVERYDAY',image:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=85'},
+  {id:'w05',name:'Midnight Slip Skirt',type:'Midi skirt',category:'western',price:1499,color:'Midnight',swatch:'#29272d',tag:'NEW EDIT',image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=85'},
+  {id:'w06',name:'Printed Anarkali',type:'Traditional wear',category:'traditional',price:2899,color:'Marigold',swatch:'#c78c32',tag:'TRADITIONAL',image:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85'},
+  {id:'w07',name:'Soft Knit Cardigan',type:'Layering knit',category:'casual',price:1799,color:'Oatmeal',swatch:'#c6b6a1',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=85'},
+  {id:'w08',name:'Modern Kurta Set',type:'Kurta and trousers',category:'traditional',price:2399,color:'Sage',swatch:'#8d9b81',tag:'SET OF 2',image:'https://images.unsplash.com/photo-1583391733956-6c78276477e8?auto=format&fit=crop&w=800&q=85'},
+  {id:'w09',name:'Tailored Wide-Leg Trousers',type:'Tailored trousers',category:'western',price:1699,color:'Stone',swatch:'#aaa093',tag:'TAILORED',image:'https://images.unsplash.com/photo-1506629905607-d9d7a3e2f3d7?auto=format&fit=crop&w=800&q=85'},
+  {id:'w10',name:'Midnight Embroidered Suit',type:'Festive three-piece',category:'traditional',price:3299,color:'Deep teal',swatch:'#245e5c',tag:'FESTIVE',image:'https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=800&q=85'},
+  {id:'w11',name:'Everyday Ribbed Tank',type:'Essential top',category:'casual',price:699,color:'Cocoa',swatch:'#7d5a48',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85'},
+  {id:'w12',name:'Pearl Button Blazer',type:'Structured blazer',category:'western',price:2699,color:'Cloud grey',swatch:'#b9b9b5',tag:'STATEMENT',image:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=85'}
 ];
-const womenData = [
-['Sculpted Blazer','Tailoring',6490,'Black'],['Rose Satin Midi Dress','Western dresses',5890,'Rose'],['Everyday Silk Shirt','Tops & shirts',3290,'Ivory'],['Ribbed Knit Top','Tops & shirts',2490,'Oat'],['Soft Wrap Dress','Western dresses',5290,'Wine'],['Weekend Co-ord Set','Co-ord sets',4790,'Sage'],['Wide-Leg Trousers','Bottoms',3690,'Charcoal'],['Soft Trench Coat','Jackets & coats',8290,'Sand'],['Pleated Midi Skirt','Bottoms',3190,'Black'],['Sculpted Knit Polo','Tops & shirts',2890,'Mocha'],['Satin Slip Dress','Western dresses',5590,'Champagne'],['Relaxed Linen Co-ord','Co-ord sets',4390,'White']
+const men = [
+  {id:'m01',name:'Relaxed Oxford Shirt',type:'Cotton shirt',category:'smart',price:1499,color:'Sky blue',swatch:'#9bb9ca',tag:'EVERYDAY',image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=85'},
+  {id:'m02',name:'Essential Heavy Tee',type:'Heavyweight T-shirt',category:'casual',price:799,color:'Washed black',swatch:'#343331',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85'},
+  {id:'m03',name:'City Pleat Trousers',type:'Pleated trousers',category:'smart',price:1799,color:'Charcoal',swatch:'#4b4948',tag:'TAILORED',image:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=85'},
+  {id:'m04',name:'Utility Overshirt',type:'Layering overshirt',category:'streetwear',price:1899,color:'Olive',swatch:'#6c7553',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85'},
+  {id:'m05',name:'Minimal Knit Polo',type:'Knit polo',category:'smart',price:1399,color:'Cream',swatch:'#e2d8c7',tag:'SMART CASUAL',image:'https://images.unsplash.com/photo-1627225924765-552d49cf47ad?auto=format&fit=crop&w=800&q=85'},
+  {id:'m06',name:'Straight-Fit Denim',type:'Denim jeans',category:'casual',price:1699,color:'Deep indigo',swatch:'#263b5a',tag:'DAILY DENIM',image:'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85'},
+  {id:'m07',name:'Structured Bomber',type:'Bomber jacket',category:'streetwear',price:2799,color:'Espresso',swatch:'#594239',tag:'OUTERWEAR',image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=85'},
+  {id:'m08',name:'Textured Resort Shirt',type:'Short-sleeve shirt',category:'casual',price:1299,color:'Sand',swatch:'#c9b89f',tag:'WEEKEND',image:'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=85'},
+  {id:'m09',name:'Double-Breasted Blazer',type:'Formal blazer',category:'smart',price:3299,color:'Navy',swatch:'#30394d',tag:'OCCASION',image:'https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=800&q=85'},
+  {id:'m10',name:'Graphic Street Sweatshirt',type:'Relaxed sweatshirt',category:'streetwear',price:1599,color:'Rust',swatch:'#a35f43',tag:'STREET EDIT',image:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85'},
+  {id:'m11',name:'Linen Blend Drawstring Pants',type:'Relaxed trousers',category:'casual',price:1399,color:'Natural beige',swatch:'#c9bda9',tag:'LIGHTWEIGHT',image:'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=800&q=85'},
+  {id:'m12',name:'Fine Stripe Formal Shirt',type:'Button-down shirt',category:'smart',price:1599,color:'White / blue',swatch:'#d5e0e5',tag:'WORK TO DINNER',image:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85'}
 ];
-const menData = [
-['Essential Overshirt','Shirts',4290,'Olive'],['Relaxed Tailored Trouser','Bottoms',3590,'Charcoal'],['Form Knit Polo','T-shirts & polos',2790,'Cream'],['Statement Jacket','Jackets & coats',7290,'Black'],['Double-Breasted Blazer','Tailoring',7990,'Navy'],['Relaxed Linen Shirt','Shirts',2990,'White'],['Everyday Denim','Denim',3390,'Indigo'],['Longline Overcoat','Jackets & coats',8990,'Camel'],['Textured Crewneck','Knitwear',3190,'Oat'],['Weekend Co-ord Set','Co-ord sets',5290,'Stone'],['Boxy Cotton Tee','T-shirts & polos',1590,'White'],['Clean-Cut Oxford','Shirts',2790,'Blue']
-];
-const palette = {Black:'#222222',Rose:'#c87986',Ivory:'#eee8dc',Oat:'#c8b99f',Wine:'#692b43',Sage:'#a7b6a0',Charcoal:'#55545a',Sand:'#d6c4a6',Mocha:'#8b6d5c',Champagne:'#ddc5a2',White:'#f6f4ef','Sky blue':'#a8c9df',Cream:'#e8dfd0',Indigo:'#344b70',Emerald:'#24745b','Dusty pink':'#c995a1',Stone:'#aaa39a','Washed blue':'#7896b7','Mid blue':'#51739a',Blush:'#e5bdc7',Lilac:'#b9a6cc',Olive:'#777b4d',Camel:'#b68c60',Red:'#b73d43',Mauve:'#b18d9b','Powder blue':'#b5d5e7',Chocolate:'#604434',Copper:'#b87550',Navy:'#25334b','Butter yellow':'#ead78b',Taupe:'#a49486',Coral:'#e88a76',Midnight:'#262a3a','Light blue':'#a7c5df',Forest:'#355a48',Graphite:'#47484d','Heather grey':'#a8a8a8',Burgundy:'#722f43',Natural:'#d8c8ac',Terracotta:'#b9684d',Khaki:'#9c9b73',Blue:'#557eae',Slate:'#687784',Rust:'#a85f43',Grey:'#929292',Check:'#a68a77',Ecru:'#e2d8c5','Washed blue':'#7896b7',Moss:'#6f7657',Cobalt:'#345fbd',Brown:'#785744','Midnight':'#25283c','Ash grey':'#a7a7a4',Green:'#557b54',Beige:'#d3c1a4'};
-function makeProducts(rows, category, prefix, offset){return rows.map((r,i)=>({id:prefix+String(i+1).padStart(2,'0'),name:r[0],type:r[1],price:r[2],badge:i%9===0?'SIGNATURE':i%7===0?'NEW ARRIVAL':i%5===0?'THE EDIT':'NOIR ESSENTIAL',category,color:r[3],swatch:palette[r[3]]||'#b8aa9b',image:`https://images.unsplash.com/photo-${photoIds[offset+i]}?auto=format&fit=crop&w=900&q=85`}))}
-const products=[...makeProducts(womenData,'women','w',0),...makeProducts(menData,'men','m',12),
-{id:'a01',name:'Mini Form Shoulder Bag',type:'Accessories',price:3890,badge:'SIGNATURE',category:'accessories',color:'Cognac',swatch:'#99633f',image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85'},
-{id:'a02',name:'Sculptural Sunglasses',type:'Accessories',price:2190,badge:'NEW ARRIVAL',category:'accessories',color:'Black',swatch:'#222',image:'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85'},
-{id:'a03',name:'Silver Detail Watch',type:'Accessories',price:4990,badge:'THE EDIT',category:'accessories',color:'Silver',swatch:'#b8bdc4',image:'https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=900&q=85'},
-{id:'a04',name:'Soft Leather Tote',type:'Accessories',price:4590,badge:'BESTSELLER',category:'accessories',color:'Tan',swatch:'#b58a62',image:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85'}];
-let bag=safeParse('noir_bag',[]),wishlist=safeParse('noir_wishlist',[]),activeFilter='all',authMode='signup',toastTimer;
-function safeParse(k,f){try{const v=JSON.parse(localStorage.getItem(k));return Array.isArray(v)?v:f}catch{return f}}
-function persist(){localStorage.setItem('noir_bag',JSON.stringify(bag));localStorage.setItem('noir_wishlist',JSON.stringify(wishlist));updateCounts()}
-function updateCounts(){$('#bagCount').textContent=bag.reduce((n,x)=>n+x.qty,0);$('#wishlistCount').textContent=wishlist.length}
-function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2500)}
-function productCard(p,i){return `<article class="product-card reveal" style="transition-delay:${(i%4)*45}ms"><div class="product-visual"><img src="${p.image}" alt="${p.name} in ${p.color}" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='#e9e1d8'"><span class="product-badge">${p.badge}</span><button class="quick-wish" data-wish="${p.id}" aria-label="Save ${p.name}">${wishlist.includes(p.id)?'♥':'♡'}</button><div class="product-actions"><button data-add="${p.id}">Add to bag <span>＋</span></button><button data-wish="${p.id}">${wishlist.includes(p.id)?'♥ Saved':'♡ Wishlist'}</button></div></div><div class="product-info"><div class="product-info-top"><div><h3>${p.name}</h3><p>${p.type}</p></div><span class="product-price">${money(p.price)}</span></div><div class="product-bottom"><span class="color-chip" style="--chip:${p.swatch}"></span><span>${p.color}</span><span class="product-code">NOIR / ${p.id.toUpperCase()}</span></div></div></article>`}
-function observeReveals(){if(!('IntersectionObserver'in window)){$$('.reveal').forEach(x=>x.classList.add('visible'));return}if(!window.revealObserver)window.revealObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');window.revealObserver.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -25px 0px'});$$('.reveal:not(.visible)').forEach(x=>window.revealObserver.observe(x))}
-function renderProducts(){$('#womenProducts').innerHTML=products.filter(p=>p.category==='women').map(productCard).join('');$('#menProducts').innerHTML=products.filter(p=>p.category==='men').map(productCard).join('');renderAll();observeReveals()}
-function renderAll(){const list=products.filter(p=>activeFilter==='all'||p.category===activeFilter);$('#allProducts').innerHTML=list.map(productCard).join('');observeReveals();$$('.filter-pill').forEach(b=>b.classList.toggle('active',b.dataset.filter===activeFilter))}
-function setFilter(f){activeFilter=f;renderAll()}
-function addToBag(id){const p=products.find(x=>x.id===id);if(!p)return;const old=bag.find(x=>x.id===id);old?old.qty++:bag.push({id,qty:1});persist();renderBag();toast(`${p.name} added to your bag.`)}
-function toggleWishlist(id){wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];persist();renderProducts();renderWishlist();toast(wishlist.includes(id)?'Saved to your wishlist ♡':'Removed from wishlist.')}
-function renderWishlist(){const el=$('#wishlistItems');if(!wishlist.length){el.innerHTML='<div class="empty-state">Your wishlist is waiting for something lovely.<br>Tap ♡ on a piece to save it here.</div>';return}el.innerHTML=wishlist.map(id=>products.find(p=>p.id===id)).filter(Boolean).map(p=>`<div class="drawer-row"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><p>${money(p.price)}</p><button data-wish-remove="${p.id}">Remove</button></div><button data-add="${p.id}" aria-label="Add to bag">＋</button></div>`).join('')}
-function renderBag(){const el=$('#bagItems');if(!bag.length)el.innerHTML='<div class="empty-state">Your bag is currently empty.<br>Good things take a little browsing.</div>';else el.innerHTML=bag.map(x=>{const p=products.find(y=>y.id===x.id);if(!p)return '';return `<div class="drawer-row"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><p>${money(p.price)} · Qty ${x.qty}</p><button data-qty-down="${p.id}">−</button> <button data-qty-up="${p.id}">+</button> <button data-bag-remove="${p.id}">Remove</button></div><strong>${money(p.price*x.qty)}</strong></div>`}).join('');$('#bagSubtotal').textContent=money(bag.reduce((s,x)=>s+(products.find(p=>p.id===x.id)?.price||0)*x.qty,0))}
-function closePanels(){$$('.drawer,.modal-wrap').forEach(el=>{el.classList.remove('open');el.setAttribute('aria-hidden','true')});$('#scrim').classList.remove('open');document.body.classList.remove('locked')}
-function openDrawer(id){closePanels();$('#scrim').classList.add('open');$('#'+id).classList.add('open');$('#'+id).setAttribute('aria-hidden','false');document.body.classList.add('locked')}
-function openModal(id){closePanels();$('#'+id).classList.add('open');$('#'+id).setAttribute('aria-hidden','false');document.body.classList.add('locked')}
-function setAuthMode(mode){authMode=mode;$$('.auth-tab').forEach(b=>b.classList.toggle('active',b.dataset.authMode===mode));$('#nameLabel').hidden=mode==='login';$('#fullName').hidden=mode==='login';$('#fullName').required=mode==='signup';$('#authPassword').value='';$('#authPassword').autocomplete=mode==='signup'?'new-password':'current-password';$('#authSubmit').innerHTML=(mode==='signup'?'Create account':'Sign in')+' <span>↗</span>';$('#authStatus').textContent=mode==='signup'?'Create an account to save your favourites across visits.':'Welcome back. Sign in to continue to your NOIR account.';$('#passwordHint').textContent=mode==='signup'?'Use 8+ characters with a letter and a number.':'Enter your password.'}
-function authMessage(msg,type=''){const el=$('#authStatus');el.textContent=msg;el.className='auth-status '+type}
-const SUPABASE_URL='YOUR_SUPABASE_PROJECT_URL',SUPABASE_ANON_KEY='YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY';let supabaseClient=null;if(window.supabase?.createClient&&SUPABASE_URL.startsWith('https://')&&SUPABASE_ANON_KEY!=='YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY'){try{supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY)}catch(e){console.error(e)}}
-async function handleAuth(e){e.preventDefault();const name=$('#fullName').value.trim(),email=$('#authEmail').value.trim(),password=$('#authPassword').value;if(authMode==='signup'&&name.length<2)return authMessage('Please enter your full name.','error');if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return authMessage('Enter a valid email address.','error');if(password.length<8)return authMessage('Use at least 8 characters for the password.','error');if(!supabaseClient)return authMessage('Demo mode: connect your own Supabase project to enable secure accounts.','error');try{const result=authMode==='signup'?await supabaseClient.auth.signUp({email,password,options:{data:{full_name:name}}}):await supabaseClient.auth.signInWithPassword({email,password});if(result.error)throw result.error;authMessage(authMode==='signup'?'Check your email to verify your account.':'You are signed in. Welcome back.','success')}catch(err){authMessage(err.message||'Could not complete that request.','error')}}
-function renderSearch(q=''){const term=q.trim().toLowerCase(),list=products.filter(p=>!term||`${p.name} ${p.type} ${p.category} ${p.color}`.toLowerCase().includes(term));$('#searchResults').innerHTML=list.length?list.slice(0,30).map(p=>`<button class="search-result" data-search-product="${p.id}"><img src="${p.image}" alt=""><span><strong>${p.name}</strong>${p.category==='women'?'Womenswear':p.category==='men'?'Menswear':'Accessories'} · ${p.color}</span><b>${money(p.price)}</b></button>`).join(''):'<div class="empty-state">No pieces found. Try another search.</div>'}
-function renderCheckoutSummary(){const total=bag.reduce((s,x)=>s+(products.find(p=>p.id===x.id)?.price||0)*x.qty,0);$('#checkoutSummary').innerHTML=`<div><span>${bag.reduce((n,x)=>n+x.qty,0)} item(s) in your bag</span><strong>${money(total)}</strong></div><p>Demo total · No payment will be collected</p>`}
-function handleDemoCheckout(e){e.preventDefault();const name=$('#checkoutName').value.trim(),email=$('#checkoutEmail').value.trim(),address=$('#checkoutAddress').value.trim(),city=$('#checkoutCity').value.trim(),pin=$('#checkoutPincode').value.trim();if(name.length<2)return $('#checkoutResult').textContent='Please enter your full name.';if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return $('#checkoutResult').textContent='Please enter a valid email address.';if(address.length<8||city.length<2)return $('#checkoutResult').textContent='Please enter a complete address and city.';if(!/^\d{6}$/.test(pin))return $('#checkoutResult').textContent='Enter a valid 6-digit PIN code.';if(!bag.length)return $('#checkoutResult').textContent='Your bag is empty.';$('#checkoutResult').innerHTML='<strong>Demo checkout only.</strong><p>No payment is taken and no order is sent to a real store.</p><button type="button" class="primary-button" id="finishDemoOrder">Finish demo ✓</button>';$('#finishDemoOrder').onclick=()=>{bag=[];persist();renderBag();renderCheckoutSummary();$('#checkoutForm').reset();$('#checkoutResult').textContent='Demo complete. Thank you for exploring NOIR.';setTimeout(closePanels,1500)}}
-function init(){const intro=$('#intro');if(intro){intro.innerHTML='<div class="intro-welcome">WELCOME TO</div><div class="intro-mark">NOIR</div><div class="intro-name">BY PARAS CHAUDHARY</div><div class="intro-line"><i></i></div>';if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)intro.classList.add('done');else setTimeout(()=>intro.classList.add('done'),2300);}const founderCopy=$('.founder-copy');if(founderCopy){const walker=document.createTreeWalker(founderCopy,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode())node.nodeValue=node.nodeValue.replace(/,?\s*mostly known as Paras,?/gi,'').replace(/\s{2,}/g,' ');}renderProducts();renderWishlist();renderBag();updateCounts();observeReveals();
-$('#menuToggle').addEventListener('click',()=>{const nav=$('#mobileNav'),isOpen=nav.classList.toggle('open');$('#menuToggle').setAttribute('aria-expanded',String(isOpen))});$$('#mobileNav a').forEach(a=>a.addEventListener('click',()=>{$('#mobileNav').classList.remove('open');$('#menuToggle').setAttribute('aria-expanded','false')}));
-$('#accountOpen').addEventListener('click',()=>{setAuthMode('signup');openModal('accountModal')});$('#mobileAccount').addEventListener('click',()=>{setAuthMode('signup');$('#mobileNav').classList.remove('open');openModal('accountModal')});$('#footerAccount').addEventListener('click',()=>{setAuthMode('signup');openModal('accountModal')});$('#accountClose').addEventListener('click',closePanels);$('#wishlistOpen').addEventListener('click',()=>{renderWishlist();openDrawer('wishlistDrawer')});$('#footerWishlist').addEventListener('click',()=>{renderWishlist();openDrawer('wishlistDrawer')});$('#bagOpen').addEventListener('click',()=>{renderBag();openDrawer('bagDrawer')});$('#scrim').addEventListener('click',closePanels);$$('.close-drawer').forEach(b=>b.addEventListener('click',closePanels));
-$('#searchOpen').addEventListener('click',()=>{renderSearch();openModal('searchModal');setTimeout(()=>$('#searchInput').focus(),120)});$('#searchClose').addEventListener('click',closePanels);$('#searchInput').addEventListener('input',e=>renderSearch(e.target.value));$('#authForm').addEventListener('submit',handleAuth);$$('.auth-tab').forEach(b=>b.addEventListener('click',()=>setAuthMode(b.dataset.authMode)));$('#togglePassword').addEventListener('click',()=>{const el=$('#authPassword'),show=el.type==='password';el.type=show?'text':'password';$('#togglePassword').textContent=show?'Hide':'Show'});
-$$('.filter-pill').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));$$('[data-filter-link]').forEach(a=>a.addEventListener('click',()=>setFilter(a.dataset.filterLink)));
-document.addEventListener('click',e=>{const add=e.target.closest('[data-add]');if(add)return addToBag(add.dataset.add);const wish=e.target.closest('[data-wish]');if(wish)return toggleWishlist(wish.dataset.wish);const rem=e.target.closest('[data-wish-remove]');if(rem)return toggleWishlist(rem.dataset.wishRemove);const rb=e.target.closest('[data-bag-remove]');if(rb){bag=bag.filter(x=>x.id!==rb.dataset.bagRemove);persist();renderBag();return}const up=e.target.closest('[data-qty-up]');if(up){const x=bag.find(y=>y.id===up.dataset.qtyUp);if(x)x.qty++;persist();renderBag();return}const down=e.target.closest('[data-qty-down]');if(down){const x=bag.find(y=>y.id===down.dataset.qtyDown);if(x)x.qty--;bag=bag.filter(y=>y.qty>0);persist();renderBag();return}const result=e.target.closest('[data-search-product]');if(result){const p=products.find(x=>x.id===result.dataset.searchProduct);closePanels();setTimeout(()=>document.querySelector(p.category==='women'?'#women':p.category==='men'?'#men':'#all-products')?.scrollIntoView({behavior:'smooth'}),80)}});
-$('#checkoutButton').addEventListener('click',()=>{if(!bag.length)return toast('Add a piece to your bag first.');renderCheckoutSummary();$('#checkoutResult').textContent='';openModal('checkoutModal')});$('#checkoutClose').addEventListener('click',closePanels);$('#checkoutForm').addEventListener('submit',handleDemoCheckout);$('#newsletterForm').addEventListener('submit',e=>{e.preventDefault();const email=$('#newsletterEmail').value.trim();$('#newsletterMessage').textContent=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)?'Thanks for your interest! This demo does not store emails.':'Please enter a valid email address.';if(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))e.target.reset()});
-const back=$('#backToTop');window.addEventListener('scroll',()=>back.classList.toggle('show',window.scrollY>600),{passive:true});back.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanels()});}
-document.addEventListener('DOMContentLoaded',init);
+
+// Guardrails: unique product IDs, names and image URLs across both collections.
+const allProducts = [...women, ...men];
+const uniqueBy = key => new Set(allProducts.map(p => p[key])).size === allProducts.length;
+if (!uniqueBy('id') || !uniqueBy('name') || !uniqueBy('image')) console.error('NOIR product uniqueness check failed.');
+
+const formatPrice = amount => '₹' + amount.toLocaleString('en-IN');
+function productCard(product, index) {
+  return `<article class="product-card" style="animation-delay:${Math.min(index * 35, 280)}ms">
+    <div class="product-image"><img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async"><span class="product-tag">${product.tag}</span></div>
+    <div class="product-info"><div class="product-name-line"><h3 class="product-name">${product.name}</h3><span class="product-price">${formatPrice(product.price)}</span></div>
+    <p class="product-type">${product.type}</p><div class="product-bottom"><span class="swatch" style="--swatch:${product.swatch}" aria-label="${product.color}"></span><span class="product-color">${product.color}</span><button class="add-button" type="button" data-add="${product.id}">ADD TO BAG +</button></div></div></article>`;
+}
+function renderProducts(collection, targetId, filter = 'all') {
+  const target = document.getElementById(targetId);
+  const visible = filter === 'all' ? collection : collection.filter(item => item.category === filter);
+  target.innerHTML = visible.map(productCard).join('');
+}
+renderProducts(women, 'womenProducts');
+renderProducts(men, 'menProducts');
+
+document.querySelectorAll('[data-filter-group]').forEach(group => {
+  group.addEventListener('click', event => {
+    const button = event.target.closest('[data-filter]');
+    if (!button) return;
+    group.querySelectorAll('[data-filter]').forEach(item => item.classList.toggle('active', item === button));
+    const isWomen = group.dataset.filterGroup === 'women';
+    renderProducts(isWomen ? women : men, isWomen ? 'womenProducts' : 'menProducts', button.dataset.filter);
+  });
+});
+
+const welcome = document.getElementById('welcome');
+const enterButton = document.getElementById('enterNoir');
+function enterSite() {
+  welcome.classList.add('is-leaving');
+  document.body.classList.remove('no-scroll');
+  window.setTimeout(() => welcome.remove(), 750);
+}
+document.body.classList.add('no-scroll');
+enterButton.addEventListener('click', enterSite);
+welcome.addEventListener('click', event => { if (event.target === welcome) enterSite(); });
+
+const menuButton = document.getElementById('menuButton');
+const nav = document.getElementById('navigation');
+menuButton.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+});
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}));
+
+const toast = document.getElementById('toast');
+let toastTimeout;
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = window.setTimeout(() => toast.classList.remove('show'), 2200);
+}
+const bag = new Map();
+document.addEventListener('click', event => {
+  const addButton = event.target.closest('[data-add]');
+  if (!addButton) return;
+  const product = allProducts.find(item => item.id === addButton.dataset.add);
+  if (!product) return;
+  bag.set(product.id, (bag.get(product.id) || 0) + 1);
+  showToast(`${product.name} added to your demo bag · ${bag.size} unique item${bag.size === 1 ? '' : 's'}`);
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// If a remote product image fails, hide only that image rather than reusing another product photo.
+document.addEventListener('error', event => {
+  const image = event.target;
+  if (image.tagName !== 'IMG' || image.dataset.errorHandled) return;
+  image.dataset.errorHandled = 'true';
+  image.style.visibility = 'hidden';
+  image.parentElement.style.background = 'linear-gradient(135deg, #e8ded5, #d6c7bb)';
+}, true);
