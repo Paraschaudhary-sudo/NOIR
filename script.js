@@ -7,7 +7,7 @@ const women = [
   {id:'w06',name:'Printed Anarkali',type:'Traditional wear',category:'traditional',price:2899,color:'Marigold',swatch:'#c78c32',tag:'TRADITIONAL',image:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85'},
   {id:'w07',name:'Soft Knit Cardigan',type:'Layering knit',category:'casual',price:1799,color:'Oatmeal',swatch:'#c6b6a1',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=85'},
   {id:'w08',name:'Modern Kurta Set',type:'Kurta and trousers',category:'traditional',price:2399,color:'Sage',swatch:'#8d9b81',tag:'SET OF 2',image:'https://images.unsplash.com/photo-1583391733956-6c78276477e8?auto=format&fit=crop&w=800&q=85'},
-  {id:'w09',name:'Tailored Wide-Leg Trousers',type:'Tailored trousers',category:'western',price:1699,color:'Stone',swatch:'#aaa093',tag:'TAILORED',image:'https://images.unsplash.com/photo-1506629905607-d9d7a3e2f3d7?auto=format&fit=crop&w=800&q=85'},
+  {id:'w09',name:'Satin Occasion Dress',type:'Flowing occasion dress',category:'western',price:1999,color:'Champagne',swatch:'#d9c6a8',tag:'OCCASION',image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=85'},
   {id:'w10',name:'Midnight Embroidered Suit',type:'Festive three-piece',category:'traditional',price:3299,color:'Deep teal',swatch:'#245e5c',tag:'FESTIVE',image:'https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=800&q=85'},
   {id:'w11',name:'Everyday Ribbed Tank',type:'Essential top',category:'casual',price:699,color:'Cocoa',swatch:'#7d5a48',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85'},
   {id:'w12',name:'Pearl Button Blazer',type:'Structured blazer',category:'western',price:2699,color:'Cloud grey',swatch:'#b9b9b5',tag:'STATEMENT',image:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=85'},
@@ -17,17 +17,17 @@ const women = [
 const men = [
   {id:'m01',name:'Relaxed Oxford Shirt',type:'Cotton shirt',category:'smart',price:1499,color:'Sky blue',swatch:'#9bb9ca',tag:'EVERYDAY',image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=85'},
   {id:'m02',name:'Essential Heavy Tee',type:'Heavyweight T-shirt',category:'casual',price:799,color:'Washed black',swatch:'#343331',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85'},
-  {id:'m03',name:'City Pleat Trousers',type:'Pleated trousers',category:'smart',price:1799,color:'Charcoal',swatch:'#4b4948',tag:'TAILORED',image:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85'},
+  {id:'m03',name:'Classic Denim Jacket',type:'Everyday denim jacket',category:'casual',price:2299,color:'Indigo',swatch:'#394b72',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=800&q=85'},
   {id:'m04',name:'Utility Overshirt',type:'Layering overshirt',category:'streetwear',price:1899,color:'Olive',swatch:'#6c7553',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85'},
   {id:'m05',name:'Minimal Knit Polo',type:'Knit polo',category:'smart',price:1399,color:'Cream',swatch:'#e2d8c7',tag:'SMART CASUAL',image:'https://images.unsplash.com/photo-1627225924765-552d49cf47ad?auto=format&fit=crop&w=800&q=85'},
   {id:'m06',name:'Straight-Fit Denim',type:'Denim jeans',category:'casual',price:1699,color:'Deep indigo',swatch:'#263b5a',tag:'DAILY DENIM',image:'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85'},
   {id:'m07',name:'Structured Bomber',type:'Bomber jacket',category:'streetwear',price:2799,color:'Espresso',swatch:'#594239',tag:'OUTERWEAR',image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=85'},
-  {id:'m08',name:'Textured Resort Shirt',type:'Short-sleeve shirt',category:'casual',price:1299,color:'Sand',swatch:'#c9b89f',tag:'WEEKEND',image:'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=85'},
+  {id:'m08',name:'Textured Resort Shirt',type:'Short-sleeve shirt',category:'casual',price:1299,color:'Sand',swatch:'#c9b89f',tag:'WEEKEND',image:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85'},
   {id:'m09',name:'Double-Breasted Blazer',type:'Formal blazer',category:'smart',price:3299,color:'Navy',swatch:'#30394d',tag:'OCCASION',image:'https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=800&q=85'},
-  {id:'m10',name:'Graphic Street Sweatshirt',type:'Relaxed sweatshirt',category:'streetwear',price:1599,color:'Rust',swatch:'#a35f43',tag:'STREET EDIT',image:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85'},
-  {id:'m11',name:'Linen Blend Drawstring Pants',type:'Relaxed trousers',category:'casual',price:1399,color:'Natural beige',swatch:'#c9bda9',tag:'LIGHTWEIGHT',image:'https://styelli.com/cdn/shop/files/DSC01993.png?v=1766254500&width=1200'},
+  {id:'m10',name:'Relaxed Weekend Shirt',type:'Casual button-up shirt',category:'casual',price:1299,color:'Sand',swatch:'#c9b89f',tag:'WEEKEND',image:'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=85'},
+  {id:'m11',name:'Minimal Zip Hoodie',type:'Relaxed cotton hoodie',category:'streetwear',price:1599,color:'Charcoal',swatch:'#343331',tag:'OFF-DUTY',image:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85'},
   {id:'m12',name:'Fine Stripe Formal Shirt',type:'Button-down shirt',category:'smart',price:1599,color:'White / blue',swatch:'#d5e0e5',tag:'WORK TO DINNER',image:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85'},
-  {id:'m13',name:'Everyday Straight Pants',type:'Cotton everyday pants',category:'casual',price:1299,color:'Olive stone',swatch:'#85816d',tag:'EVERYDAY FIT',image:'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=85'}
+  {id:'m13',name:'Everyday Crewneck Sweatshirt',type:'Cotton crewneck sweatshirt',category:'streetwear',price:1499,color:'Forest green',swatch:'#536653',tag:'EVERYDAY LAYER',image:'https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=85'}
 ];
 
 
@@ -43,6 +43,7 @@ const accessories = [
 const allProducts = [...women, ...men, ...accessories];
 const uniqueBy = key => new Set(allProducts.map(p => p[key])).size === allProducts.length;
 if (!uniqueBy('id') || !uniqueBy('name') || !uniqueBy('image')) console.error('NOIR uniqueness check failed: product IDs, names and image URLs must be unique.');
+else console.info('NOIR catalogue check passed: product IDs, names, and image URLs are unique.');
 
 const formatPrice = amount => '₹' + amount.toLocaleString('en-IN');
 const wishlistKey = 'noirWishlistV1';
@@ -127,7 +128,7 @@ document.addEventListener('click', event => {
 function productCard(product, index) {
   const saved = getWishlist().includes(product.id);
   return `<article class="product-card" style="animation-delay:${Math.min(index * 35, 280)}ms">
-    <div class="product-image"><img src="${product.image}" alt="${product.name} — ${product.type}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.visibility='hidden';this.parentElement.classList.add('image-unavailable');"><span class="product-tag">${product.tag}</span><button class="quick-add" type="button" data-add="${product.id}" aria-label="Add ${product.name} to bag">+</button><button class="wishlist-toggle ${saved ? 'is-saved' : ''}" type="button" data-wishlist="${product.id}" aria-label="${saved ? 'Remove' : 'Save'} ${product.name} ${saved ? 'from' : 'to'} wishlist" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button></div>
+    <div class="product-image"><img src="${product.image}" alt="${product.name} — ${product.type}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('image-unavailable');"><span class="product-tag">${product.tag}</span><button class="quick-add" type="button" data-add="${product.id}" aria-label="Add ${product.name} to bag">+</button><button class="wishlist-toggle ${saved ? 'is-saved' : ''}" type="button" data-wishlist="${product.id}" aria-label="${saved ? 'Remove' : 'Save'} ${product.name} ${saved ? 'from' : 'to'} wishlist" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button></div>
     <div class="product-info"><div class="product-name-line"><h3 class="product-name">${product.name}</h3><span class="product-price">${formatPrice(product.price)}</span></div>
     <p class="product-type">${product.type}</p><div class="product-bottom"><span class="swatch" style="--swatch:${product.swatch}" aria-label="${product.color}"></span><span class="product-color">${product.color}</span><button class="add-button" type="button" data-add="${product.id}">ADD TO BAG +</button></div><button class="size-guide-link" type="button" data-size-guide="${product.id}">FIT & SIZE GUIDE ↗</button></div></article>`;
 }
