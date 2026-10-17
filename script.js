@@ -10,12 +10,14 @@ const women = [
   {id:'w09',name:'Tailored Wide-Leg Trousers',type:'Tailored trousers',category:'western',price:1699,color:'Stone',swatch:'#aaa093',tag:'TAILORED',image:'https://images.unsplash.com/photo-1506629905607-d9d7a3e2f3d7?auto=format&fit=crop&w=800&q=85'},
   {id:'w10',name:'Midnight Embroidered Suit',type:'Festive three-piece',category:'traditional',price:3299,color:'Deep teal',swatch:'#245e5c',tag:'FESTIVE',image:'https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=800&q=85'},
   {id:'w11',name:'Everyday Ribbed Tank',type:'Essential top',category:'casual',price:699,color:'Cocoa',swatch:'#7d5a48',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85'},
-  {id:'w12',name:'Pearl Button Blazer',type:'Structured blazer',category:'western',price:2699,color:'Cloud grey',swatch:'#b9b9b5',tag:'STATEMENT',image:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=85'}
-];
+  {id:'w12',name:'Pearl Button Blazer',type:'Structured blazer',category:'western',price:2699,color:'Cloud grey',swatch:'#b9b9b5',tag:'STATEMENT',image:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=85'},
+  {id:'w13',name:'Everyday Cotton Kurti',type:'Straight-fit kurti',category:'traditional',price:1199,color:'Soft sage',swatch:'#a8b39b',tag:'EASY TRADITIONAL',image:'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=85'},
+  {id:'w14',name:'Midnight Drape Saree',type:'Lightweight occasion saree',category:'traditional',price:2799,color:'Midnight blue',swatch:'#252f49',tag:'OCCASION',image:'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&w=800&q=85'},
+  {id:'w15',name:'Square-Neck Everyday Top',type:'Cotton blend top',category:'casual',price:799,color:'Warm white',swatch:'#e9e2d7',tag:'DAILY ESSENTIAL',image:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85'}];
 const men = [
   {id:'m01',name:'Relaxed Oxford Shirt',type:'Cotton shirt',category:'smart',price:1499,color:'Sky blue',swatch:'#9bb9ca',tag:'EVERYDAY',image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=85'},
   {id:'m02',name:'Essential Heavy Tee',type:'Heavyweight T-shirt',category:'casual',price:799,color:'Washed black',swatch:'#343331',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85'},
-  {id:'m03',name:'City Pleat Trousers',type:'Pleated trousers',category:'smart',price:1799,color:'Charcoal',swatch:'#4b4948',tag:'TAILORED',image:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=85'},
+  {id:'m03',name:'City Pleat Trousers',type:'Pleated trousers',category:'smart',price:1799,color:'Charcoal',swatch:'#4b4948',tag:'TAILORED',image:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85'},
   {id:'m04',name:'Utility Overshirt',type:'Layering overshirt',category:'streetwear',price:1899,color:'Olive',swatch:'#6c7553',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85'},
   {id:'m05',name:'Minimal Knit Polo',type:'Knit polo',category:'smart',price:1399,color:'Cream',swatch:'#e2d8c7',tag:'SMART CASUAL',image:'https://images.unsplash.com/photo-1627225924765-552d49cf47ad?auto=format&fit=crop&w=800&q=85'},
   {id:'m06',name:'Straight-Fit Denim',type:'Denim jeans',category:'casual',price:1699,color:'Deep indigo',swatch:'#263b5a',tag:'DAILY DENIM',image:'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85'},
@@ -23,8 +25,9 @@ const men = [
   {id:'m08',name:'Textured Resort Shirt',type:'Short-sleeve shirt',category:'casual',price:1299,color:'Sand',swatch:'#c9b89f',tag:'WEEKEND',image:'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=85'},
   {id:'m09',name:'Double-Breasted Blazer',type:'Formal blazer',category:'smart',price:3299,color:'Navy',swatch:'#30394d',tag:'OCCASION',image:'https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=800&q=85'},
   {id:'m10',name:'Graphic Street Sweatshirt',type:'Relaxed sweatshirt',category:'streetwear',price:1599,color:'Rust',swatch:'#a35f43',tag:'STREET EDIT',image:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85'},
-  {id:'m11',name:'Linen Blend Drawstring Pants',type:'Relaxed trousers',category:'casual',price:1399,color:'Natural beige',swatch:'#c9bda9',tag:'LIGHTWEIGHT',image:'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=800&q=85'},
-  {id:'m12',name:'Fine Stripe Formal Shirt',type:'Button-down shirt',category:'smart',price:1599,color:'White / blue',swatch:'#d5e0e5',tag:'WORK TO DINNER',image:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85'}
+  {id:'m11',name:'Linen Blend Drawstring Pants',type:'Relaxed trousers',category:'casual',price:1399,color:'Natural beige',swatch:'#c9bda9',tag:'LIGHTWEIGHT',image:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85'},
+  {id:'m12',name:'Fine Stripe Formal Shirt',type:'Button-down shirt',category:'smart',price:1599,color:'White / blue',swatch:'#d5e0e5',tag:'WORK TO DINNER',image:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85'},
+  {id:'m13',name:'Everyday Straight Pants',type:'Cotton everyday pants',category:'casual',price:1299,color:'Olive stone',swatch:'#85816d',tag:'EVERYDAY FIT',image:'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=85'}
 ];
 
 
@@ -42,11 +45,91 @@ const uniqueBy = key => new Set(allProducts.map(p => p[key])).size === allProduc
 if (!uniqueBy('id') || !uniqueBy('name') || !uniqueBy('image')) console.error('NOIR uniqueness check failed: product IDs, names and image URLs must be unique.');
 
 const formatPrice = amount => '₹' + amount.toLocaleString('en-IN');
+const wishlistKey = 'noirWishlistV1';
+function getWishlist() { try { return JSON.parse(localStorage.getItem(wishlistKey) || '[]'); } catch (_) { return []; } }
+function saveWishlist(ids) { try { localStorage.setItem(wishlistKey, JSON.stringify(ids)); } catch (_) {} }
+function updateWishlistUI() {
+  const ids = getWishlist();
+  const count = document.getElementById('wishlistCount'); if (count) count.textContent = ids.length;
+  const items = ids.map(id => allProducts.find(product => product.id === id)).filter(Boolean);
+  const target = document.getElementById('wishlistItems');
+  if (target) target.innerHTML = items.length ? items.map(product => `<article class="wishlist-item"><img src="${product.image}" alt="${product.name}"><div><strong>${product.name}</strong><p>${formatPrice(product.price)} · ${product.color}</p><button type="button" class="wishlist-add" data-add="${product.id}">ADD TO BAG</button></div><button type="button" class="wishlist-remove" data-wishlist="${product.id}" aria-label="Remove ${product.name}">×</button></article>`).join('') : '<p class="empty-bag">Tap the heart on a piece to save it here.</p>';
+  document.querySelectorAll('[data-wishlist]').forEach(button => { const saved = ids.includes(button.dataset.wishlist); if (button.classList.contains('wishlist-toggle')) { button.classList.toggle('is-saved', saved); button.setAttribute('aria-pressed', String(saved)); button.textContent = saved ? '♥' : '♡'; } });
+}
+const sizeGuideModal = document.getElementById('sizeGuideModal');
+const sizeGuideContent = document.getElementById('sizeGuideContent');
+function openSizeGuide(productId) {
+  const product = allProducts.find(item => item.id === productId); if (!product) return;
+  const isWomen = women.some(item => item.id === productId);
+  const text = `${product.name} · ${product.type}`;
+  document.getElementById('sizeGuideTitle').innerHTML = 'Find your <em>fit.</em>';
+  document.getElementById('sizeGuideIntro').textContent = `${text}. These general body-measurement ranges help you choose a starting point; fabric, cut and the way you like clothes to sit can change the best fit.`;
+  const clothing = product.name.toLowerCase();
+  let rows;
+  if (/saree/.test(clothing)) {
+    rows = [['One size / drape','Usually a 5.5–6.5 m saree length','Blouse fit depends on the blouse piece and tailoring'],['Before ordering','Check fabric width, blouse piece and included accessories','Drape length and personal styling can vary']];
+  } else if (/skirt|trouser|pant|denim|jean/.test(clothing)) {
+    rows = [['XS','Waist 61–66 cm','Hip 86–91 cm'],['S','Waist 67–72 cm','Hip 92–97 cm'],['M','Waist 73–78 cm','Hip 98–103 cm'],['L','Waist 79–85 cm','Hip 104–110 cm'],['XL','Waist 86–93 cm','Hip 111–118 cm']];
+  } else {
+    rows = [['XS','Bust/chest 76–81 cm','Waist 60–65 cm'],['S','Bust/chest 82–87 cm','Waist 66–71 cm'],['M','Bust/chest 88–93 cm','Waist 72–77 cm'],['L','Bust/chest 94–101 cm','Waist 78–85 cm'],['XL','Bust/chest 102–110 cm','Waist 86–94 cm']];
+  }
+  const headers = /saree/.test(clothing) ? ['FIT NOTE','DETAIL','REMEMBER'] : (/skirt|trouser|pant|denim|jean/.test(clothing) ? ['STARTING SIZE','BODY WAIST','BODY HIP'] : ['STARTING SIZE','BODY BUST / CHEST','BODY WAIST']);
+  sizeGuideContent.innerHTML = `<p class="size-product-label">${isWomen ? 'WOMEN’S EDIT' : (men.some(item => item.id === productId) ? 'MEN’S EDIT' : 'ACCESSORIES')} / ${product.name}</p><div class="size-table-wrap"><table class="size-table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map(cell=>`<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="size-fit-tip"><strong>Fit preference:</strong> Choose a closer fit if you like a neat silhouette; consider one size up for extra ease in non-stretch fabric. These are general demo ranges, not brand-certified measurements.</p>`;
+  openModal(sizeGuideModal);
+}
+const productSearch = document.getElementById('productSearch');
+let activeSearchGender = 'women';
+const searchResultsWrap = document.getElementById('searchResultsWrap');
+function runProductSearch(term = productSearch?.value || '') {
+  const raw = term.trim().toLowerCase();
+  const source = activeSearchGender === 'women' ? women : activeSearchGender === 'men' ? men : allProducts;
+  const aliases = {
+    kurti: p => /kurti|kurta|anarkali/.test((p.name+' '+p.type).toLowerCase()),
+    skirts: p => /skirt/.test((p.name+' '+p.type).toLowerCase()),
+    skirt: p => /skirt/.test((p.name+' '+p.type).toLowerCase()),
+    saree: p => /saree/.test((p.name+' '+p.type).toLowerCase()),
+    top: p => /top|tank|tee|t-shirt|tshirt/.test((p.name+' '+p.type).toLowerCase()),
+    shirt: p => /shirt|overshirt/.test((p.name+' '+p.type).toLowerCase()),
+    trouser: p => /trouser|pant|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
+    trousers: p => /trouser|pant|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
+    pant: p => /pant|trouser|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
+    pants: p => /pant|trouser|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
+    't-shirt': p => /t-shirt|tshirt|tee/.test((p.name+' '+p.type).toLowerCase()),
+    tshirt: p => /t-shirt|tshirt|tee/.test((p.name+' '+p.type).toLowerCase())
+  };
+  const matches = !raw ? [] : source.filter(p => aliases[raw] ? aliases[raw](p) : (p.name+' '+p.type+' '+p.category+' '+p.tag).toLowerCase().includes(raw));
+  document.getElementById('searchResultLabel').textContent = raw ? `${matches.length} piece${matches.length===1?'':'s'} for “${term.trim()}”` : 'Recommended pieces';
+  document.getElementById('searchResults').innerHTML = matches.length ? matches.map(productCard).join('') : `<div class="search-empty"><strong>No exact match just yet.</strong><p>Try another item, or choose one of the recommendations above.</p></div>`;
+  searchResultsWrap.hidden = !raw;
+  updateWishlistUI();
+}
+function setSearchGender(gender) {
+  activeSearchGender = gender;
+  document.querySelectorAll('[data-gender]').forEach(button => button.classList.toggle('active', button.dataset.gender === gender));
+  const rec = document.getElementById('searchRecommendations');
+  const terms = gender === 'men' ? ['shirt','trouser','pant','t-shirt'] : gender === 'women' ? ['kurti','skirts','saree','top'] : ['kurti','shirt','saree','t-shirt'];
+  rec.innerHTML = '<span>TRY:</span>' + terms.map(term=>`<button type="button" data-search-term="${term}">${term.charAt(0).toUpperCase()+term.slice(1)}</button>`).join('');
+  if (productSearch) productSearch.placeholder = gender === 'men' ? 'Try shirt, trouser, pant, t-shirt…' : gender === 'women' ? 'Try kurti, skirt, saree, top…' : 'Search shirts, kurtis, sarees, tees…';
+  if (productSearch?.value.trim()) runProductSearch(); else searchResultsWrap.hidden = true;
+}
+document.querySelectorAll('[data-gender]').forEach(button => button.addEventListener('click', () => setSearchGender(button.dataset.gender)));
+productSearch?.addEventListener('input', () => runProductSearch());
+document.getElementById('clearSearch')?.addEventListener('click', () => { productSearch.value=''; searchResultsWrap.hidden=true; productSearch.focus(); });
+document.getElementById('closeSearchResults')?.addEventListener('click', () => { searchResultsWrap.hidden=true; productSearch.value=''; });
+document.getElementById('searchRecommendations')?.addEventListener('click', event => { const button=event.target.closest('[data-search-term]'); if (!button) return; productSearch.value=button.dataset.searchTerm; runProductSearch(button.dataset.searchTerm); document.getElementById('searchResultsWrap').scrollIntoView({behavior:'smooth',block:'nearest'}); });
+document.getElementById('wishlistOpen')?.addEventListener('click', () => { updateWishlistUI(); openModal(document.getElementById('wishlistModal')); });
+document.addEventListener('click', event => {
+  const wish = event.target.closest('[data-wishlist]');
+  if (wish) { const id=wish.dataset.wishlist; const ids=getWishlist(); const next=ids.includes(id)?ids.filter(item=>item!==id):[...ids,id]; saveWishlist(next); updateWishlistUI(); if (productSearch?.value.trim()) runProductSearch(); showToast(next.includes(id)?'Saved to your NOIR wishlist':'Removed from your wishlist'); return; }
+  const guide = event.target.closest('[data-size-guide]'); if (guide) { openSizeGuide(guide.dataset.sizeGuide); return; }
+});
+
 function productCard(product, index) {
+  const saved = getWishlist().includes(product.id);
   return `<article class="product-card" style="animation-delay:${Math.min(index * 35, 280)}ms">
-    <div class="product-image"><img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async"><span class="product-tag">${product.tag}</span><button class="quick-add" type="button" data-add="${product.id}" aria-label="Add ${product.name} to bag">+</button></div>
+    <div class="product-image"><img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async"><span class="product-tag">${product.tag}</span><button class="quick-add" type="button" data-add="${product.id}" aria-label="Add ${product.name} to bag">+</button><button class="wishlist-toggle ${saved ? 'is-saved' : ''}" type="button" data-wishlist="${product.id}" aria-label="${saved ? 'Remove' : 'Save'} ${product.name} ${saved ? 'from' : 'to'} wishlist" aria-pressed="${saved}">${saved ? '♥' : '♡'}</button></div>
     <div class="product-info"><div class="product-name-line"><h3 class="product-name">${product.name}</h3><span class="product-price">${formatPrice(product.price)}</span></div>
-    <p class="product-type">${product.type}</p><div class="product-bottom"><span class="swatch" style="--swatch:${product.swatch}" aria-label="${product.color}"></span><span class="product-color">${product.color}</span><button class="add-button" type="button" data-add="${product.id}">ADD TO BAG +</button></div></div></article>`;
+    <p class="product-type">${product.type}</p><div class="product-bottom"><span class="swatch" style="--swatch:${product.swatch}" aria-label="${product.color}"></span><span class="product-color">${product.color}</span><button class="add-button" type="button" data-add="${product.id}">ADD TO BAG +</button></div><button class="size-guide-link" type="button" data-size-guide="${product.id}">FIT & SIZE GUIDE ↗</button></div></article>`;
 }
 function renderProducts(collection, targetId, filter = 'all') {
   const target = document.getElementById(targetId);
@@ -57,6 +140,7 @@ function renderProducts(collection, targetId, filter = 'all') {
 renderProducts(women, 'womenProducts');
 renderProducts(men, 'menProducts');
 renderProducts(accessories, 'accessoryProducts');
+updateWishlistUI();
 
 document.querySelectorAll('[data-filter-group]').forEach(group => {
   group.addEventListener('click', event => {
@@ -144,42 +228,151 @@ document.addEventListener('click', event => {
 
 const accountModal = document.getElementById('accountModal');
 const checkoutModal = document.getElementById('checkoutModal');
-function openAccount() { openModal(accountModal); }
+const memberStudio = document.getElementById('memberStudio');
+const accountStorageKey = 'noirDemoAccountsV2';
+const sessionStorageKey = 'noirDemoSessionV2';
+const profileKey = email => 'noirDemoProfileV2:' + email.toLowerCase();
+const readJSON = (key, fallback) => { try { const value = localStorage.getItem(key); return value ? JSON.parse(value) : fallback; } catch { return fallback; } };
+const getAccounts = () => readJSON(accountStorageKey, []);
+let currentUser = null;
+let authMode = 'signup';
+async function passwordDigest(password) {
+  try {
+    if (window.crypto && crypto.subtle) {
+      const bytes = new TextEncoder().encode(password);
+      const digest = await crypto.subtle.digest('SHA-256', bytes);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+  } catch (_) {}
+  // Local-only fallback for browsers where Web Crypto is unavailable; never use a real password here.
+  return 'demo-' + btoa(unescape(encodeURIComponent(password)));
+}
+function getProfile(email) { return readJSON(profileKey(email), {philosophy:'', reviews:[], orders:[]}); }
+function saveProfile(email, profile) { localStorage.setItem(profileKey(email), JSON.stringify(profile)); }
+function setAuthMessage(message, success = false) {
+  const el = document.getElementById('accountMessage');
+  el.textContent = message; el.classList.toggle('success', success);
+}
+function updateAccountUI() {
+  const accountButton = document.getElementById('accountOpen');
+  if (currentUser) {
+    accountButton.textContent = 'HI, ' + currentUser.name.split(/\s+/)[0].toUpperCase();
+    memberStudio.hidden = false;
+    document.getElementById('studioGreeting').textContent = `Welcome back, ${currentUser.name}. This is your personal NOIR space.`;
+    renderStudio();
+  } else {
+    accountButton.textContent = 'MY NOIR';
+    memberStudio.hidden = true;
+  }
+}
+function renderStudio() {
+  if (!currentUser) return;
+  const profile = getProfile(currentUser.email);
+  document.getElementById('personalPhilosophy').value = profile.philosophy || '';
+  document.getElementById('savedPhilosophy').textContent = profile.philosophy || 'Your philosophy will appear here once you save it.';
+  const personalReviews = document.getElementById('personalReviews');
+  personalReviews.innerHTML = profile.reviews.length ? profile.reviews.slice().reverse().map(review => `<article class="personal-review"><div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</div><p>${escapeHTML(review.text)}</p><span>— ${escapeHTML(currentUser.name)} · YOUR NOIR NOTE</span></article>`).join('') : '<p class="empty-bag">Your published demo reviews will appear here.</p>';
+  document.getElementById('personalReviews').querySelectorAll('article').forEach(item => item.classList.add('review-card'));
+  const personalOrders = document.getElementById('personalOrders');
+  personalOrders.innerHTML = profile.orders.length ? profile.orders.slice().reverse().map(order => { const ordered = (order.items || []).map(([id, qty]) => { const item = allProducts.find(p => p.id === id); return item ? `${qty} × ${item.name}` : `${qty} × item`; }).join(' · '); return `<article class="personal-order"><strong>${escapeHTML(order.code)}</strong><span>${formatPrice(order.total)}</span><small>${escapeHTML(order.method)} · ${new Date(order.date).toLocaleDateString()}</small><p class="order-item-list">${escapeHTML(ordered || 'Items unavailable')}</p></article>`; }).join('') : 'Your demo orders will appear here.';
+}
+function escapeHTML(value) { return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
+function openAccount() {
+  if (currentUser) { memberStudio.hidden = false; closePanels(); memberStudio.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+  openModal(accountModal);
+}
 document.getElementById('accountOpen')?.addEventListener('click', openAccount);
 document.getElementById('footerAccount')?.addEventListener('click', openAccount);
-let authMode = 'signup';
 document.querySelectorAll('[data-auth-mode]').forEach(button => button.addEventListener('click', () => {
   authMode = button.dataset.authMode;
-  document.querySelectorAll('[data-auth-mode]').forEach(tab => tab.classList.toggle('active', tab === button));
+  document.querySelectorAll('[data-auth-mode]').forEach(item => item.classList.toggle('active', item === button));
   document.getElementById('accountTitle').innerHTML = authMode === 'signup' ? 'Create your <em>account.</em>' : 'Welcome <em>back.</em>';
   document.getElementById('accountNameLabel').hidden = authMode === 'login';
   document.getElementById('accountName').hidden = authMode === 'login';
   document.getElementById('accountName').required = authMode === 'signup';
   document.getElementById('accountPassword').autocomplete = authMode === 'signup' ? 'new-password' : 'current-password';
   document.getElementById('accountSubmit').innerHTML = authMode === 'signup' ? 'CREATE DEMO ACCOUNT <span>↗</span>' : 'LOG IN TO DEMO <span>↗</span>';
-  document.getElementById('accountMessage').textContent = '';
+  setAuthMessage('');
 }));
-document.getElementById('accountForm')?.addEventListener('submit', event => {
+document.getElementById('accountForm')?.addEventListener('submit', async event => {
   event.preventDefault();
   const name = document.getElementById('accountName').value.trim();
-  const email = document.getElementById('accountEmail').value.trim();
-  document.getElementById('accountMessage').textContent = authMode === 'signup' ? `Demo account preview created for ${name}. No account data was sent or saved.` : `Demo login checked for ${email}. No real authentication is connected.`;
-  document.getElementById('accountMessage').classList.add('success');
+  const email = document.getElementById('accountEmail').value.trim().toLowerCase();
+  const password = document.getElementById('accountPassword').value;
+  const accounts = getAccounts();
+  try {
+    if (authMode === 'signup') {
+      if (accounts.some(account => account.email === email)) { setAuthMessage('An account with this email already exists. Please log in.'); return; }
+      accounts.push({name, email, passwordHash: await passwordDigest(password)});
+      localStorage.setItem(accountStorageKey, JSON.stringify(accounts));
+      saveProfile(email, {philosophy:'', reviews:[], orders:[]});
+      currentUser = {name, email};
+      localStorage.setItem(sessionStorageKey, JSON.stringify(currentUser));
+      setAuthMessage('Your NOIR demo account is ready. Opening your Studio…', true);
+    } else {
+      const account = accounts.find(item => item.email === email);
+      if (!account || account.passwordHash !== await passwordDigest(password)) { setAuthMessage('Email or password does not match this browser’s demo accounts.'); return; }
+      currentUser = {name:account.name, email:account.email};
+      localStorage.setItem(sessionStorageKey, JSON.stringify(currentUser));
+      setAuthMessage('You are logged in. Welcome back.', true);
+    }
+    updateAccountUI();
+    window.setTimeout(() => { closePanels(); memberStudio.scrollIntoView({behavior:'smooth', block:'start'}); }, 500);
+  } catch (_) { setAuthMessage('Browser storage is unavailable. Please enable site storage and try again.'); }
 });
+document.getElementById('logoutButton')?.addEventListener('click', () => {
+  currentUser = null; localStorage.removeItem(sessionStorageKey); updateAccountUI();
+  memberStudio.scrollIntoView({behavior:'smooth', block:'start'}); showToast('You have logged out of NOIR demo.');
+});
+document.getElementById('philosophyForm')?.addEventListener('submit', event => {
+  event.preventDefault(); if (!currentUser) return;
+  const profile = getProfile(currentUser.email); profile.philosophy = document.getElementById('personalPhilosophy').value.trim(); saveProfile(currentUser.email, profile);
+  document.getElementById('savedPhilosophy').textContent = profile.philosophy || 'Your philosophy will appear here once you save it.';
+  const msg = document.getElementById('philosophyMessage'); msg.textContent = 'Your philosophy has been saved in this browser.'; msg.classList.add('success');
+});
+document.getElementById('reviewForm')?.addEventListener('submit', event => {
+  event.preventDefault(); if (!currentUser) return;
+  const profile = getProfile(currentUser.email);
+  const review = {rating:Number(document.getElementById('reviewRating').value), text:document.getElementById('personalReview').value.trim(), date:new Date().toISOString()};
+  profile.reviews.push(review); saveProfile(currentUser.email, profile); renderStudio();
+  document.getElementById('personalReview').value = '';
+  const msg = document.getElementById('reviewMessage'); msg.textContent = 'Your review is published in your personal demo space.'; msg.classList.add('success');
+});
+// Restore the demo session when the same browser opens the site again.
+try {
+  const savedSession = readJSON(sessionStorageKey, null);
+  if (savedSession && getAccounts().some(account => account.email === savedSession.email)) currentUser = savedSession;
+} catch (_) {}
+updateAccountUI();
 
 document.getElementById('checkoutOpen')?.addEventListener('click', () => {
   if (!bag.size) { showToast('Add a product to your bag first.'); return; }
   document.getElementById('checkoutTotal').textContent = formatPrice(bagTotal());
   document.getElementById('checkoutMessage').textContent = '';
+  if (currentUser) {
+    document.getElementById('checkoutName').value = currentUser.name;
+    document.getElementById('checkoutEmail').value = currentUser.email;
+  }
   openModal(checkoutModal);
 });
+const orderSuccess = document.getElementById('orderSuccess');
+function closeOrderSuccess() { orderSuccess.classList.remove('open'); orderSuccess.setAttribute('aria-hidden','true'); document.body.classList.remove('no-scroll'); }
+document.getElementById('orderSuccessClose')?.addEventListener('click', closeOrderSuccess);
+orderSuccess?.addEventListener('click', event => { if (event.target === orderSuccess) closeOrderSuccess(); });
 document.getElementById('checkoutForm')?.addEventListener('submit', event => {
   event.preventDefault();
   const orderCode = 'NOIR-DEMO-' + Math.random().toString(36).slice(2,7).toUpperCase();
   const method = new FormData(event.currentTarget).get('paymentMethod');
-  document.getElementById('checkoutMessage').textContent = `Demo order ${orderCode} created for ${formatPrice(bagTotal())} using ${method}. No payment was taken and no real order was placed.`;
-  document.getElementById('checkoutMessage').classList.add('success');
-  bag.clear(); updateBag();
+  const total = bagTotal();
+  if (currentUser) {
+    const profile = getProfile(currentUser.email);
+    profile.orders.push({code:orderCode, total, method, date:new Date().toISOString(), items:[...bag.entries()]});
+    saveProfile(currentUser.email, profile);
+  }
+  document.getElementById('orderSuccessCopy').textContent = `Thanks for trying the NOIR demo. Your simulated order total is ${formatPrice(total)} using ${method}.`;
+  document.getElementById('orderSuccessCode').textContent = orderCode;
+  closePanels(); bag.clear(); updateBag();
+  orderSuccess.classList.add('open'); orderSuccess.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll');
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
