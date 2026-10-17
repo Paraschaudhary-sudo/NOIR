@@ -1,3 +1,27 @@
+// Premium confirmation chime generated locally with Web Audio; no external audio asset.
+let noirAudioContext;
+function playPremiumSound(kind = 'success') {
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    noirAudioContext = noirAudioContext || new AudioContextClass();
+    if (noirAudioContext.state === 'suspended') noirAudioContext.resume();
+    const now = noirAudioContext.currentTime;
+    const notes = kind === 'order' ? [523.25, 659.25, 783.99] : kind === 'account' ? [659.25, 830.61] : [783.99, 987.77];
+    notes.forEach((frequency, index) => {
+      const osc = noirAudioContext.createOscillator();
+      const gain = noirAudioContext.createGain();
+      const start = now + index * 0.085;
+      osc.type = 'sine'; osc.frequency.setValueAtTime(frequency, start);
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(0.065, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.34);
+      osc.connect(gain); gain.connect(noirAudioContext.destination);
+      osc.start(start); osc.stop(start + 0.36);
+    });
+  } catch (_) { /* Browser audio may be unavailable; shopping actions still work. */ }
+}
+
 const women = [
   {id:'w01',name:'Sculpted Satin Dress',type:'Evening dress',category:'western',price:2499,color:'Champagne',swatch:'#d9c6a8',tag:'EVENING',image:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=85'},
   {id:'w02',name:'Everyday Linen Shirt',type:'Relaxed shirt',category:'casual',price:1299,color:'Ivory',swatch:'#e8e0d4',tag:'EASY WEAR',image:'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=800&q=85'},
@@ -6,7 +30,7 @@ const women = [
   {id:'w05',name:'Midnight Slip Skirt',type:'Midi skirt',category:'western',price:1499,color:'Midnight',swatch:'#29272d',tag:'NEW EDIT',image:'https://assets.ajio.com/medias/sys_master/root1/20260509/XQOp/69ff5ffafcb5bb61d2b2d99a/-1117Wx1400H-701131484-red-MODEL2.jpg'},
   {id:'w06',name:'Printed Anarkali',type:'Traditional wear',category:'traditional',price:2899,color:'Marigold',swatch:'#c78c32',tag:'TRADITIONAL',image:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85'},
   {id:'w07',name:'Soft Knit Cardigan',type:'Layering knit',category:'casual',price:1799,color:'Oatmeal',swatch:'#c6b6a1',tag:'LAYER UP',image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=85'},
-  {id:'w08',name:'Modern Kurta Set',type:'Kurta and trousers',category:'traditional',price:2399,color:'Sage',swatch:'#8d9b81',tag:'SET OF 2',image:'https://images.unsplash.com/photo-1583391733956-6c78276477e8?auto=format&fit=crop&w=800&q=85'},
+  {id:'w08',name:'Modern Kurta Set',type:'Kurta and palazzo set',category:'traditional',price:2399,color:'Sage',swatch:'#8d9b81',tag:'SET OF 2',image:'https://images.unsplash.com/photo-1583391733956-6c78276477e8?auto=format&fit=crop&w=800&q=85'},
   {id:'w09',name:'Satin Occasion Dress',type:'Flowing occasion dress',category:'western',price:1999,color:'Champagne',swatch:'#d9c6a8',tag:'OCCASION',image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=85'},
   {id:'w10',name:'Midnight Embroidered Suit',type:'Festive three-piece',category:'traditional',price:3299,color:'Deep teal',swatch:'#245e5c',tag:'FESTIVE',image:'https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=800&q=85'},
   {id:'w11',name:'Everyday Ribbed Tank',type:'Essential top',category:'casual',price:699,color:'Cocoa',swatch:'#7d5a48',tag:'ESSENTIAL',image:'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85'},
@@ -83,18 +107,19 @@ let activeSearchGender = 'women';
 const searchResultsWrap = document.getElementById('searchResultsWrap');
 function runProductSearch(term = productSearch?.value || '') {
   const raw = term.trim().toLowerCase();
-  const source = activeSearchGender === 'women' ? women : activeSearchGender === 'men' ? men : allProducts;
+  const source = activeSearchGender === 'women' ? women : activeSearchGender === 'men' ? men : activeSearchGender === 'accessories' ? accessories : allProducts;
   const aliases = {
     kurti: p => /kurti|kurta|anarkali/.test((p.name+' '+p.type).toLowerCase()),
     skirts: p => /skirt/.test((p.name+' '+p.type).toLowerCase()),
     skirt: p => /skirt/.test((p.name+' '+p.type).toLowerCase()),
     saree: p => /saree/.test((p.name+' '+p.type).toLowerCase()),
+    pant: p => /denim|jean|pant|bottom/.test((p.name+' '+p.type).toLowerCase()),
+    'denim jacket': p => /denim jacket/.test((p.name+' '+p.type).toLowerCase()),
+    sunglasses: p => /sunglasses|frames/.test((p.name+' '+p.type).toLowerCase()),
+    bag: p => /bag|tote/.test((p.name+' '+p.type).toLowerCase()),
+    watch: p => /watch|dial/.test((p.name+' '+p.type).toLowerCase()),
     top: p => /top|tank|tee|t-shirt|tshirt/.test((p.name+' '+p.type).toLowerCase()),
     shirt: p => /shirt|overshirt/.test((p.name+' '+p.type).toLowerCase()),
-    trouser: p => /trouser|pant|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
-    trousers: p => /trouser|pant|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
-    pant: p => /pant|trouser|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
-    pants: p => /pant|trouser|jean|denim/.test((p.name+' '+p.type).toLowerCase()),
     't-shirt': p => /t-shirt|tshirt|tee/.test((p.name+' '+p.type).toLowerCase()),
     tshirt: p => /t-shirt|tshirt|tee/.test((p.name+' '+p.type).toLowerCase())
   };
@@ -108,9 +133,9 @@ function setSearchGender(gender) {
   activeSearchGender = gender;
   document.querySelectorAll('[data-gender]').forEach(button => button.classList.toggle('active', button.dataset.gender === gender));
   const rec = document.getElementById('searchRecommendations');
-  const terms = gender === 'men' ? ['shirt','trouser','pant','t-shirt'] : gender === 'women' ? ['kurti','skirts','saree','top'] : ['kurti','shirt','saree','t-shirt'];
+  const terms = gender === 'men' ? ['denim jacket','pant','shirt'] : gender === 'women' ? ['saree','top','skirt'] : gender === 'accessories' ? ['sunglasses','bag','watch'] : ['saree','shirt','sunglasses'];
   rec.innerHTML = '<span>TRY:</span>' + terms.map(term=>`<button type="button" data-search-term="${term}">${term.charAt(0).toUpperCase()+term.slice(1)}</button>`).join('');
-  if (productSearch) productSearch.placeholder = gender === 'men' ? 'Try shirt, trouser, pant, t-shirt…' : gender === 'women' ? 'Try kurti, skirt, saree, top…' : 'Search shirts, kurtis, sarees, tees…';
+  if (productSearch) productSearch.placeholder = gender === 'men' ? 'Try denim jacket, pant, shirt…' : gender === 'women' ? 'Try saree, top, skirt…' : gender === 'accessories' ? 'Try sunglasses, bag, watch…' : 'Search saree, shirt, sunglasses…';
   if (productSearch?.value.trim()) runProductSearch(); else searchResultsWrap.hidden = true;
 }
 document.querySelectorAll('[data-gender]').forEach(button => button.addEventListener('click', () => setSearchGender(button.dataset.gender)));
@@ -121,7 +146,7 @@ document.getElementById('searchRecommendations')?.addEventListener('click', even
 document.getElementById('wishlistOpen')?.addEventListener('click', () => { updateWishlistUI(); openModal(document.getElementById('wishlistModal')); });
 document.addEventListener('click', event => {
   const wish = event.target.closest('[data-wishlist]');
-  if (wish) { const id=wish.dataset.wishlist; const ids=getWishlist(); const next=ids.includes(id)?ids.filter(item=>item!==id):[...ids,id]; saveWishlist(next); updateWishlistUI(); if (productSearch?.value.trim()) runProductSearch(); showToast(next.includes(id)?'Saved to your NOIR wishlist':'Removed from your wishlist'); return; }
+  if (wish) { const id=wish.dataset.wishlist; const ids=getWishlist(); const next=ids.includes(id)?ids.filter(item=>item!==id):[...ids,id]; saveWishlist(next); updateWishlistUI(); if (next.includes(id)) playPremiumSound('save'); if (productSearch?.value.trim()) runProductSearch(); showToast(next.includes(id)?'Saved to your NOIR wishlist':'Removed from your wishlist'); return; }
   const guide = event.target.closest('[data-size-guide]'); if (guide) { openSizeGuide(guide.dataset.sizeGuide); return; }
 });
 
@@ -215,7 +240,7 @@ document.addEventListener('click', event => {
     const product = allProducts.find(item => item.id === addButton.dataset.add);
     if (!product) return;
     bag.set(product.id, (bag.get(product.id) || 0) + 1);
-    updateBag(); showToast(`${product.name} added to your bag`); return;
+    playPremiumSound('save'); updateBag(); showToast(`${product.name} added to your bag`); return;
   }
   const qtyButton = event.target.closest('[data-qty]');
   if (qtyButton) {
@@ -307,6 +332,7 @@ document.getElementById('accountForm')?.addEventListener('submit', async event =
       accounts.push({name, email, passwordHash: await passwordDigest(password)});
       localStorage.setItem(accountStorageKey, JSON.stringify(accounts));
       saveProfile(email, {philosophy:'', reviews:[], orders:[]});
+      playPremiumSound('account');
       currentUser = {name, email};
       localStorage.setItem(sessionStorageKey, JSON.stringify(currentUser));
       setAuthMessage('Your NOIR demo account is ready. Opening your Studio…', true);
@@ -373,7 +399,7 @@ document.getElementById('checkoutForm')?.addEventListener('submit', event => {
   document.getElementById('orderSuccessCopy').textContent = `Thanks for trying the NOIR demo. Your simulated order total is ${formatPrice(total)} using ${method}.`;
   document.getElementById('orderSuccessCode').textContent = orderCode;
   closePanels(); bag.clear(); updateBag();
-  orderSuccess.classList.add('open'); orderSuccess.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll');
+  orderSuccess.classList.add('open'); orderSuccess.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll'); playPremiumSound('order');
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
